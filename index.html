@@ -195,7 +195,7 @@
 
   <header id="hdr">
     <div class="container nav">
-      <div class="brand"><img src="img/Design sem nome (7).png" alt="Logo Marinho Mendes" style="height:60px;"> <a href="https://www.marinhomendes.adv.br/" target="_blank" rel="noopener" aria-label="Ir para o site do escritório">Marinho Mendes</a></div>
+      <div class="brand"><img src="img/Design sem nome (7).png" alt="Logo Marinho Mendes" style="height:90px;"> <a href="https://www.marinhomendes.adv.br/" target="_blank" rel="noopener" aria-label="Ir para o site do escritório">Marinho Mendes</a></div>
       <div class="menu-wrap">
         <nav class="menu" aria-label="Navegação primária">
           <a href="#sobre"  class="nav-link">Sobre</a>
@@ -214,11 +214,14 @@
   </header>
 
   <section class="hero" id="hero" aria-label="Destaque">
-    <div class="hero-bg" aria-hidden="true" style="background:url('img/Captura de tela 2025-09-05 152213.png') center/cover no-repeat; background-size:contain; background-repeat:no-repeat;"></div>
+    <picture class="hero-bg" aria-hidden="true" style="position:absolute;inset:-12% -12% -12% -12%;display:block;z-index:1;">
+      <source srcset="img/Captura de tela 2025-09-05 152213.webp" type="image/webp">
+      <img src="img/Captura de tela 2025-09-05 152213.png" alt="Imagem de destaque Auxílio-Doença" loading="lazy" style="width:100%;height:100%;object-fit:contain;filter:grayscale(100%);">
+    </picture>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="wrap">
-      <h1>Auxílio‑Doença em 2025</h1>
-      <p>Entenda rápido: quem tem direito, como pedir e quais documentos levar.</p>
+  <h1>Auxílio‑Doença em 2025</h1>
+  <p style="color:#fff">Entenda rápido: quem tem direito, como pedir e quais documentos levar.</p>
       <div class="cta">
         <a class="btn tip" href="#auxilio" aria-label="Ir para requisitos do auxílio" data-tip="Ver requisitos">Ver requisitos</a>
         <a class="badge-blog tip" href="https://www.marinhomendes.adv.br/blog/auxilio-doenca-2025/" target="_blank" rel="noopener" data-tip="Ler artigo no Blog" aria-label="Abrir artigo completo no blog">Blog</a>
@@ -360,14 +363,9 @@
   </section>
 
   <footer aria-label="Rodapé" style="border-top:1px solid var(--line);padding:var(--sp-5) 0">
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:var(--sp-4);align-items:center;justify-content:space-between">
+    <div class="container" style="display:flex;flex-direction:column;align-items:center;gap:var(--sp-4);">
       <img src="img/Design sem nome (7).png" alt="Logo Marinho Mendes" style="height:60px;">
-      <p style="margin:0;color:var(--ink-3)">© 2025 Marinho Mendes Sociedade de Advogados — conteúdo informativo. Não substitui consultoria jurídica.</p>
-      <div class="social">
-        <a class="li tip" data-tip="Visitar LinkedIn" href="https://www.linkedin.com/company/marinho-mendes/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a class="ig tip" data-tip="Visitar Instagram" href="https://www.instagram.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a class="fb tip" data-tip="Visitar Facebook" href="https://www.facebook.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-      </div>
+      <p style="margin:0;color:var(--ink-3);text-align:center;">© 2025 Marinho Mendes Sociedade de Advogados — conteúdo informativo. Não substitui consultoria jurídica.</p>
     </div>
   </footer>
 
@@ -379,7 +377,19 @@
     const $ = (s,c=document)=>c.querySelector(s); const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
     /* Progresso + header */
     const progress=$('#progress'), hdr=$('#hdr');
-    const onScrollUI=()=>{const st=document.documentElement.scrollTop||document.body.scrollTop;const sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;progress.style.width=(sh?(st/sh)*100:0)+'%';hdr.classList.toggle('is-compact',st>8)}; window.addEventListener('scroll',onScrollUI,{passive:true}); onScrollUI();
+    let lastCompact = false;
+    const onScrollUI=()=>{
+      const st=document.documentElement.scrollTop||document.body.scrollTop;
+      const sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+      progress.style.width=(sh?(st/sh)*100:0)+'%';
+      const compact = st>8;
+      if (compact !== lastCompact) {
+        hdr.classList.toggle('is-compact',compact);
+        lastCompact = compact;
+      }
+    };
+    window.addEventListener('scroll',onScrollUI,{passive:true});
+    onScrollUI();
 
     /* Parallax melhorado: camada própria com translateY + leve scale */
     const bg=document.querySelector('.hero-bg');
