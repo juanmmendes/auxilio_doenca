@@ -1,418 +1,621 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marinho Mendes | Auxílio‑Doença 2025</title>
-  <meta name="description" content="Auxílio‑doença (benefício por incapacidade temporária): requisitos, Atestmed x Perícia, etapas, documentos, FAQ. Design monocromático, leve e responsivo." />
+  <title>Auxílio-Doença 2025 | Marinho Mendes Advogados</title>
+  <meta name="description" content="Guia objetivo do Auxílio-Doença (benefício por incapacidade temporária): requisitos, Atestmed vs. Perícia, documentos e passos. Conteúdo informativo — procure amparo jurídico." />
+  <meta name="theme-color" content="#0A2540" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <style>
     :root{
-      /* Paleta monocromática */
-      --ink-0:#0E0E10; --ink-1:#212124; --ink-2:#4A4A4F; --ink-3:#7A7A80;
-      --bg-0:#FFFFFF; --bg-1:#F7F8F9; --line:#E8E9EB; --shadow:0 10px 28px rgba(0,0,0,.06);
-      /* Tipografia e espaçamentos fluidos */
-      --ff-sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif; --ff-serif:'Playfair Display',serif;
-      --fs-900:clamp(2rem, 4vw + .5rem, 3.2rem); --fs-800:clamp(1.4rem, 2.2vw + .5rem, 2.1rem); --fs-700:clamp(1.05rem, 1.2vw + .5rem, 1.4rem);
-      --fs-600:1.05rem; --fs-500:1rem; --lh:1.6;
-      --sp-1:.25rem; --sp-2:.5rem; --sp-3:1rem; --sp-4:1.5rem; --sp-5:2rem; --sp-6:3rem; --sp-7:4rem; --radius:14px;
-      --wa:#25D366; /* verde exclusivo do WhatsApp */
-      --container-max:1200px; --ig-speed:6s; /* Cores de marca para ícones reais */ --fb:#1877F2; --li:#0A66C2; --ig1:#F58529; --ig2:#DD2A7B; --ig3:#8134AF; --ig4:#515BD4;
+      /* Cores institucionais sólidas */
+      --brand:#0A2540;         /* navy forte */
+      --brand-2:#0E1A2A;       /* navy profundo */
+      --gold:#C5A76B;          /* dourado discreto */
+      --ink:#101520;           /* texto principal (alto contraste) */
+      --muted:#5E6573;         /* texto auxiliar */
+      --paper:#FFFFFF;         /* cartões */
+      --bg:#F5F7FA;            /* fundo */
+      --line:#E3E6EB;          /* linhas sutis */
+      --ok:#0B7A5A;            /* verde credibilidade */
+      --warn:#8A5A0A;          /* aviso */
+      --danger:#B00020;        /* erro acessível */
+      --shadow:0 12px 30px rgba(10,37,64,.12);
+      /* Tipografia e escala */
+      --ff-sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+      --ff-serif:'Playfair Display',serif;
+      --fs-900:clamp(2.2rem, 3.8vw + .6rem, 3.4rem);
+      --fs-800:clamp(1.4rem, 2.2vw + .4rem, 2.2rem);
+      --fs-700:clamp(1.05rem, 1.25vw + .4rem, 1.35rem);
+      --fs-600:1.05rem; --fs-500:1rem; --lh:1.65;
+      --radius:16px; --rsm:12px; --tap:46px;
+      --container:1180px;
     }
     *,*::before,*::after{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:var(--ff-sans);line-height:var(--lh);color:var(--ink-2);background:var(--bg-0)}
-    h1,h2,h3{color:var(--ink-1);margin:0 0 var(--sp-3)}
-    h1{font:700 var(--fs-900)/1.12 var(--ff-serif)} h2{font:700 var(--fs-800)/1.18 var(--ff-serif)} h3{font:600 var(--fs-700)/1.25 var(--ff-sans)}
-    p{margin:0 0 var(--sp-3)} a{color:var(--ink-1);text-decoration:none} a:hover{text-decoration:underline}
-    .container{width:min(var(--container-max),92%);margin-inline:auto}
+    body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--fs-500)/var(--lh) var(--ff-sans)}
+    h1,h2,h3{margin:0 0 .75rem;color:#0D1522}
+    h1{font:700 var(--fs-900)/1.12 var(--ff-serif)}
+    h2{font:700 var(--fs-800)/1.18 var(--ff-serif)}
+    h3{font:700 var(--fs-700)/1.25 var(--ff-sans)}
+    p{margin:0 0 1rem}
+    a{color:inherit;text-decoration:none}
+    a.link{color:var(--brand);text-decoration:underline;text-underline-offset:3px}
+    .container{width:min(var(--container),92%);margin-inline:auto}
 
-    /* Progresso + header */
-    .progress{position:fixed;inset:0 auto auto 0;height:3px;background:var(--ink-1);width:0;z-index:9999}
-    header{position:sticky;top:0;background:var(--bg-0);border-bottom:1px solid var(--line);z-index:999}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:var(--sp-3) 0;transition:padding .25s ease}
-    header.is-compact .nav{padding:var(--sp-2) 0;box-shadow:var(--shadow)}
-    .brand{display:flex;gap:.6rem;align-items:center;color:var(--ink-0);font-weight:700}
-    .brand i{color:var(--ink-3)}
-    .brand a{color:inherit;text-decoration:none}
+    /* Header institucional (sólido) */
+    .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),#E4CFA1);width:0;z-index:70}
+    header{position:sticky;top:0;z-index:60;background:var(--brand);border-bottom:1px solid rgba(255,255,255,.08)}
+    .topbar{display:flex;align-items:center;gap:18px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:800}
+    .brand img{height:42px;width:auto}
+    .brand small{display:block;color:#C9D4E3;font-weight:600;letter-spacing:.3px}
+    nav{margin-left:auto;display:flex;align-items:center;gap:26px}
+    nav a{color:#E9EEF5;font-weight:700;letter-spacing:.2px;opacity:.9}
+    nav a.active, nav a:hover{color:#fff;opacity:1}
+    .cta-top{margin-left:8px;display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#1A2230;border:0;border-radius:999px;padding:10px 14px;font-weight:800;box-shadow:var(--shadow)}
+    .burger{display:none;background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:12px;padding:8px 10px}
+    @media(max-width:940px){nav{display:none}.burger{display:inline-flex;margin-left:auto}}
 
-    /* Menu responsivo */
-    .menu-wrap{display:flex;align-items:center;gap:var(--sp-4)}
-    .menu{display:flex;gap:var(--sp-4);align-items:center}
-    .menu a{position:relative;font-weight:600;color:var(--ink-2)} .menu a.active{color:var(--ink-0)}
-    .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;background:var(--ink-0)}
-    .burger{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:.55rem .7rem;cursor:pointer}
-    .burger i{font-size:1.1rem;color:var(--ink-1)}
-    @media (max-width:920px){
-      .menu{display:none;position:absolute;inset:auto 0 0 0;background:#fff;border-top:1px solid var(--line);padding:var(--sp-3);box-shadow:var(--shadow)}
-      header.open .menu{display:grid;grid-template-columns:1fr;gap:var(--sp-2)}
-      .burger{display:block}
-      .menu-wrap{gap:var(--sp-2)}
-    }
+    /* Menu móvel */
+    .mobile{position:fixed;inset:62px 0 auto 0;background:var(--brand);border-bottom:1px solid rgba(255,255,255,.08);display:none}
+    .mobile.open{display:block}
+    .mobile .wrap{padding:14px 0}
+    .mobile a{display:block;color:#E9EEF5;padding:12px 16px;font-weight:700}
+    .mobile a:hover{color:#fff;background:rgba(255,255,255,.06)}
 
-    .social{display:flex;gap:.75rem}
-    .social a{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:#fff;color:var(--ink-1);box-shadow:var(--shadow);transition:transform .15s ease,filter .15s ease}
-    .social a:hover{transform:translateY(-2px);filter:brightness(1.05)}
-    .social a i{color:inherit}
-    .social a.fb{background:var(--fb);color:#fff}
-    .social a.li{background:var(--li);color:#fff}
-    .social a.ig{background:linear-gradient(45deg,var(--ig1),var(--ig2),var(--ig3),var(--ig4));background-size:200% 200%;animation:igShift var(--ig-speed) ease-in-out infinite alternate;color:#fff}
+    /* Hero institucional (primeira dobra) */
+    .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--brand),var(--brand-2));padding:84px 0}
+    .hero::before{content:"";position:absolute;inset:0;background:url('img/hero-auxilio.webp') center/cover no-repeat;filter:grayscale(100%) contrast(1.05) opacity(.18)}
+    .hero .container{position:relative;z-index:2;display:grid;gap:28px;align-items:center;grid-template-columns:1.1fr .9fr}
+    @media(max-width:980px){.hero .container{grid-template-columns:1fr}}
+    .hero .lead{color:#D9E4F2;max-width:52ch}
+    .hero h1{color:#fff}
+    .kicker{display:inline-block;color:#E4CFA1;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:.75rem}
+    .btn{display:inline-flex;align-items:center;gap:10px;border-radius:12px;padding:12px 16px;font-weight:800;letter-spacing:.2px;border:1px solid transparent;cursor:pointer}
+    .btn.primary{background:var(--gold);color:#1A2230}
+    .btn.secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+    .hero .note{margin-top:8px;color:#C9D4E3;font-size:.96rem}
 
-    /* Tooltips discretos + badge Blog + animação IG */
-    .tip{position:relative}
-    .tip:focus-visible{outline:2px solid #000;outline-offset:2px;border-radius:12px}
-    .tip[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 10px);left:50%;transform:translate(-50%,6px);background:#111;color:#fff;padding:.35rem .6rem;border-radius:8px;font-size:.8rem;line-height:1;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease, transform .15s ease;z-index:1000}
-    .tip[data-tip]::before{content:"";position:absolute;bottom:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#111;opacity:0;transition:opacity .15s ease}
-    .tip:hover[data-tip]::after,.tip:focus-visible[data-tip]::after{opacity:1;transform:translate(-50%,0)}
-    .tip:hover[data-tip]::before,.tip:focus-visible[data-tip]::before{opacity:1}
+    /* Blocos de informação (cartões firmes) */
+    .section{padding:56px 0}
+    .section.white{background:#fff}
+    .title-center{text-align:center;margin-bottom:22px}
+    .rule{width:84px;height:2px;background:var(--brand);margin:10px auto 0}
+    .grid-2{display:grid;gap:18px}
+    @media(min-width:860px){.grid-2{grid-template-columns:1fr 1fr}}
+    .grid-3{display:grid;gap:18px}
+    @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)}}
 
-    .badge-blog{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .7rem;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink-1);font-weight:700;font-size:.86rem;letter-spacing:.2px;box-shadow:var(--shadow)}
-    .badge-blog:hover{filter:brightness(1.02);transform:translateY(-1px)}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .card h3{display:flex;align-items:center;gap:10px;color:var(--brand)}
+    .card h3 i{color:var(--gold)}
+    .muted{color:var(--muted)}
 
-    @keyframes igShift{0%{background-position:0% 50%}100%{background-position:100% 50%}}
-    @media (prefers-reduced-motion:reduce){.social a.ig{animation:none!important}}
+    /* Miniaturas ilustrativas (CRO + empatia) */
+    .thumb{display:block;width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin:.4rem 0 .8rem}
+    .thumb img{width:100%;height:auto;display:block}
 
-    /* Hero com parallax melhorado */
-    .hero{position:relative;min-height:82vh;display:grid;place-items:center;overflow:hidden}
-    .hero-bg{position:absolute;inset:-12% -12% -12% -12%;background:url('img/Captura de tela 2025-09-05 152213.png') center/cover no-repeat; background-size:contain; background-repeat:no-repeat;filter:grayscale(100%);will-change:transform}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(0,0,0,.62))}
-    .hero .wrap{position:relative;z-index:2;text-align:center;max-width:820px;background:rgba(255,255,255,.08);backdrop-filter:saturate(140%) blur(6px);border:1px solid rgba(255,255,255,.22);border-radius:var(--radius);padding:var(--sp-6) var(--sp-5)}
-    .hero h1{color:#fff;margin-bottom:var(--sp-3)} .hero p{color:#EEE}
-    .cta{display:flex;gap:var(--sp-3);justify-content:center;margin-top:var(--sp-4);flex-wrap:wrap}
-    .btn{appearance:none;border:1px solid var(--ink-1);background:var(--ink-0);color:#fff;border-radius:999px;padding:.9rem 1.35rem;font-weight:700;letter-spacing:.2px;transition:transform .2s ease,background .2s ease}
-    .btn:hover{transform:translateY(-2px)} .btn.secondary{background:transparent;color:#fff}
+    /* Comparativo e timeline */
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+    table{width:100%;border-collapse:collapse}
+    thead th{background:#F8FAFD;color:#0E1520}
+    th,td{padding:14px;border-bottom:1px solid var(--line);text-align:left}
 
-    /* Seções e títulos */
-    section{padding:var(--sp-7) 0}
-    .section-title{text-align:center;margin-bottom:var(--sp-6)} .section-title .rule{width:84px;height:2px;background:var(--ink-1);margin:var(--sp-2) auto 0}
+    .timeline{display:grid;gap:16px}
+    @media(min-width:900px){.timeline{grid-template-columns:repeat(4,1fr)}}
+    .step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+    .step .n{display:inline-grid;place-content:center;width:36px;height:36px;border-radius:50%;background:var(--gold);color:#1A2230;font-weight:800;margin-bottom:8px}
+    .step .thumb{border-radius:10px;margin:.35rem 0 .6rem}
 
-    /* KPIs */
-    .kpis{display:grid;gap:var(--sp-4);grid-template-columns:repeat(12,1fr);margin-top:var(--sp-5)}
-    .kpi{grid-column:span 3;background:var(--bg-1);border:1px solid var(--line);border-radius:var(--radius);padding:var(--sp-4);box-shadow:var(--shadow);text-align:center}
-    .kpi b{display:block;color:var(--ink-1);font:700 2rem/1 var(--ff-serif);margin-bottom:.4rem}
-    @media (max-width:980px){.kpi{grid-column:span 6}} @media (max-width:640px){.kpi{grid-column:span 12}}
+    /* Checklist (documentos) */
+    .checklist{display:grid;gap:12px}
+    @media(min-width:860px){.checklist{grid-template-columns:1fr 1fr}}
+    .doc{display:flex;gap:12px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px;align-items:flex-start}
+    .doc i{color:var(--gold);font-size:1.2rem;margin-top:2px}
 
-    /* Cards */
-    .grid{display:grid;gap:var(--sp-4);grid-template-columns:repeat(12,1fr)}
-    .card{grid-column:span 4;background:var(--bg-1);border:1px solid var(--line);border-radius:var(--radius);padding:var(--sp-4);box-shadow:var(--shadow);transition:transform .2s ease}
-    .card:hover{transform:translateY(-4px)} .card i{font-size:1.4rem;color:var(--ink-3)} .card h3{margin:.6rem 0 var(--sp-2);color:var(--ink-1)}
-    @media (max-width:980px){.card{grid-column:span 6}} @media (max-width:640px){.card{grid-column:span 12}}
+    .pill{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;font-weight:700;font-size:.9rem}
 
-    /* Comparativo */
-    .compare{overflow:auto}
-    table{width:100%;border-collapse:collapse;background:var(--bg-0);border:1px solid var(--line);border-radius:var(--radius)} th,td{padding:1rem;border-bottom:1px solid var(--line);text-align:left}
-    thead th{font:700 var(--fs-600)/1.2 var(--ff-sans);color:var(--ink-1)}
-
-    /* Timeline */
-    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-4);margin-top:var(--sp-5)}
-    .step{background:var(--bg-1);border:1px solid var(--line);border-radius:var(--radius);padding:var(--sp-4);text-align:center}
-    .step i{font-size:1.3rem;color:var(--ink-3)} .step h3{margin-top:.5rem}
-    @media (max-width:900px){.timeline{grid-template-columns:1fr 1fr}} @media (max-width:540px){.timeline{grid-template-columns:1fr}}
-
-    /* FAQ */
-    .faq{max-width:860px;margin-inline:auto}
-    details{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-1);padding:var(--sp-3);margin-bottom:var(--sp-3)}
-    summary{cursor:pointer;font-weight:700;color:var(--ink-1)} details[open]{background:var(--bg-0)} details p{margin-top:var(--sp-2)}
-
-    /* Requisitos: lista responsiva */
-    .reqs{list-style:none;margin:0 0 var(--sp-5);padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3)}
-    .reqs li{display:flex;gap:.75rem;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1rem;box-shadow:var(--shadow)}
-    .reqs i{color:var(--ink-3);margin-top:.2rem}
-    @media(max-width:700px){.reqs{grid-template-columns:1fr}}
-
-    /* Checklist */
-    .checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3)} .item{display:flex;gap:.75rem;align-items:flex-start;border:1px dashed var(--line);border-radius:10px;padding:.9rem;background:#fff} .item input{margin-top:.25rem}
-    @media(max-width:700px){.checklist{grid-template-columns:1fr}}
+    /* Avisos jurídicos (destaque ético) */
+    .legal{display:flex;gap:12px;align-items:flex-start;background:#FFFAF1;border:1px solid #F0E3C6;border-radius:12px;padding:12px 14px;color:#6B5725}
+    .legal i{color:#6B5725}
 
     /* Contato */
-    .contact{background:var(--bg-1)} .contact .grid>.col{grid-column:span 4} .contact .grid>.col.wide{grid-column:span 8}
-    @media (max-width:980px){.contact .grid>.col,.contact .grid>.col.wide{grid-column:span 12}}
-    form .row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3)} @media (max-width:640px){form .row{grid-template-columns:1fr}}
-    label{font-size:.95rem;font-weight:600;color:var(--ink-1)} input,textarea{width:100%;padding:1rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink-2);font:400 var(--fs-500)/1.4 var(--ff-sans)} input:focus,textarea:focus{outline:2px solid #000;outline-offset:1px}
-    .error{display:none;color:#B00020;font-weight:600;font-size:.9rem;margin-top:.35rem}
+    .contact .grid{display:grid;gap:18px}
+    @media(min-width:1040px){.contact .grid{grid-template-columns:1.1fr .9fr}}
+    label{font-weight:800;color:#0C1421}
+    input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;font:400 var(--fs-500)/1.45 var(--ff-sans);color:var(--ink)}
+    input:focus,textarea:focus,select:focus{outline:3px solid var(--brand);outline-offset:1px}
+    .row{display:grid;gap:12px}
+    @media(min-width:700px){.row.two{grid-template-columns:1fr 1fr}}
+    .errors{display:none;color:var(--danger);font-weight:700;font-size:.92rem}
 
-    /* WhatsApp fixo */
-    .whats{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--wa);color:#fff;border:none;box-shadow:0 10px 22px rgba(0,0,0,.18);z-index:999}
-    .whats:hover{filter:brightness(1.05)}
+    /* Consentimento LGPD (bloco destacado) */
+    .consent{margin-top:16px;border:1px solid #E8D9B6;background:linear-gradient(180deg,#FFF9EA,#FFFDF7);border-radius:12px;padding:12px 14px;color:#5E4B20}
+    .consent label{display:flex;gap:10px;align-items:flex-start;font-weight:700}
+    .consent small{display:block;color:#6B5725;font-weight:600}
 
-    /* Reveal */
-    .reveal{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
-    .reveal.is-hidden{opacity:.001;transform:translateY(18px)}
+    /* Social (acessível) */
+    .social{display:flex;gap:.6rem;flex-wrap:wrap}
+    .social a{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+    .social a:hover{filter:brightness(1.03)}
 
-    /* Ajustes móveis finos */
-    @media (max-width:520px){
-      section{padding:var(--sp-6) 0}
-      .hero .wrap{padding:var(--sp-5) var(--sp-4)}
-      .btn{padding:.85rem 1.1rem}
-    }
+    /* Sticky CTA (mobile) */
+    .sticky-cta{position:sticky;bottom:0;background:rgba(10,27,45,.98);backdrop-filter:saturate(140%) blur(4px);border-top:1px solid rgba(255,255,255,.08);padding:.65rem 0;z-index:65}
+    .sticky-cta .container{display:flex;gap:10px;justify-content:space-between;align-items:center}
+    .sticky-cta .btn{padding:.85rem 1rem}
+    @media(min-width:900px){.sticky-cta{display:none}}
 
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .btn,.card,*{transition:none!important}}
+    /* WhatsApp flutuante */
+    .whats{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;border:none;box-shadow:0 12px 22px rgba(0,0,0,.18);z-index:70}
+
+    /* Rodapé */
+    footer{border-top:1px solid var(--line);background:#fff}
+    .foot{display:grid;gap:18px;padding:24px 0}
+    @media(min-width:1000px){.foot{grid-template-columns:repeat(4,1fr)}}
+    .copy{text-align:center;color:var(--muted)}
+
+    /* Acessibilidade e motion */
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Marinho Mendes Sociedade de Advogados",
-    "url": "https://www.marinhomendes.adv.br/",
-    "sameAs": [
-      "https://www.facebook.com/marinhomendesadv",
-      "https://www.instagram.com/marinhomendesadv",
-      "https://www.linkedin.com/company/marinho-mendes/"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+55-19-97410-0605",
-      "contactType": "customer service",
-      "areaServed": "BR",
-      "availableLanguage": ["pt-BR"]
-    }],
-    "address": [
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. José Rocha Bonfim, 214, Bloco J – Sala 228 – Praça Capital",
-        "addressLocality": "Campinas",
-        "addressRegion": "SP",
-        "postalCode": "13080-650",
-        "addressCountry": "BR"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "Rua Antônio Nelson Barbosa, 93 – Jardim do Bosque",
-        "addressLocality": "Hortolândia",
-        "addressRegion": "SP",
-        "postalCode": "13186-231",
-        "addressCountry": "BR"
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
+  <a class="sr-only" href="#conteudo">Ir para o conteúdo</a>
   <div class="progress" id="progress"></div>
-
-  <header id="hdr">
-    <div class="container nav">
-      <div class="brand"><img src="img/Design sem nome (7).png" alt="Logo Marinho Mendes" style="height:90px;"> <a href="https://www.marinhomendes.adv.br/" target="_blank" rel="noopener" aria-label="Ir para o site do escritório">Marinho Mendes</a></div>
-      <div class="menu-wrap">
-        <nav class="menu" aria-label="Navegação primária">
-          <a href="#sobre"  class="nav-link">Sobre</a>
-          <a href="#auxilio" class="nav-link">Auxílio‑Doença</a>
-          <a href="#faq"    class="nav-link">Perguntas</a>
-          <a href="#contato"class="nav-link">Contato</a>
-        </nav>
-        <button class="burger" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-        <div class="social" aria-label="Redes sociais">
-          <a class="fb tip" data-tip="Visitar Facebook" href="https://www.facebook.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a class="ig tip" data-tip="Visitar Instagram" href="https://www.instagram.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a class="li tip" data-tip="Visitar LinkedIn" href="https://www.linkedin.com/company/marinho-mendes/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <img src="img/logo-mm-monocromatico.png" alt="Marinho Mendes Advogados" loading="lazy" />
+        <div>
+          <div>Marinho Mendes Advogados</div>
+          <small>Direito Previdenciário • Conteúdo informativo (OAB)</small>
         </div>
       </div>
+      <nav aria-label="Navegação principal">
+        <a href="#direitos" class="nav-link">O essencial</a>
+        <a href="#documentos" class="nav-link">Documentos</a>
+        <a href="#familia" class="nav-link">Familiares</a>
+        <a href="#processo" class="nav-link">Etapas</a>
+        <a href="#faq" class="nav-link">Perguntas</a>
+        <a href="#contato" class="cta-top"><i class="fa-solid fa-paper-plane"></i> Contato imediato</a>
+      </nav>
+      <button class="burger" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div class="mobile" id="mnav" role="dialog" aria-label="Menu">
+      <div class="container wrap">
+        <a href="#direitos">O essencial</a>
+        <a href="#documentos">Documentos</a>
+        <a href="#familia">Familiares</a>
+        <a href="#processo">Etapas</a>
+        <a href="#faq">Perguntas</a>
+        <a href="#contato">Contato imediato</a>
+      </div>
+    </div>
     </div>
   </header>
 
-  <section class="hero" id="hero" aria-label="Destaque">
-    <picture class="hero-bg" aria-hidden="true" style="position:absolute;inset:-12% -12% -12% -12%;display:block;z-index:1;">
-      <source srcset="img/Captura de tela 2025-09-05 152213.webp" type="image/webp">
-      <img src="img/Captura de tela 2025-09-05 152213.png" alt="Imagem de destaque Auxílio-Doença" loading="lazy" style="width:100%;height:100%;object-fit:contain;filter:grayscale(100%);">
-    </picture>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="wrap">
-  <h1>Auxílio‑Doença em 2025</h1>
-  <p style="color:#fff">Entenda rápido: quem tem direito, como pedir e quais documentos levar.</p>
-      <div class="cta">
-        <a class="btn tip" href="#auxilio" aria-label="Ir para requisitos do auxílio" data-tip="Ver requisitos">Ver requisitos</a>
-        <a class="badge-blog tip" href="https://www.marinhomendes.adv.br/blog/auxilio-doenca-2025/" target="_blank" rel="noopener" data-tip="Ler artigo no Blog" aria-label="Abrir artigo completo no blog">Blog</a>
-        <a class="btn secondary tip" href="https://www.marinhomendes.adv.br/"$1aria-label="Abrir página do escritório" data-tip="Sobre o escritório">Sobre o escritório</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="sobre" aria-labelledby="tit-sobre">
-    <div class="container">
-      <div class="section-title">
-        <h2 id="tit-sobre">Marinho Mendes Sociedade de Advogados</h2>
-        <div class="rule"></div>
-      </div>
-      <p>Atuação em Direito Previdenciário. Objetivo: segurança, clareza e agilidade no seu pedido.</p>
-      <div class="kpis">
-        <div class="kpi"><b>15 dias</b><span>Primeiros 15: empresa. Do 16º em diante: INSS.</span></div>
-        <div class="kpi"><b>12 contrib.</b><span>Carência padrão. Há doenças que dispensam.</span></div>
-        <div class="kpi"><b>91%</b><span>Base de cálculo sobre a média dos salários.</span></div>
-        <div class="kpi"><b>30 dias</b><span>Prazo para recurso se negar.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="auxilio" aria-labelledby="tit-auxilio">
-    <div class="container">
-      <div class="section-title">
-        <h2 id="tit-auxilio">Auxílio‑Doença — o essencial</h2>
-        <div class="rule"></div>
-      </div>
-
-      <div class="grid">
-        <article class="card reveal is-hidden"><i class="fa-solid fa-circle-info"></i><h3>O que é</h3><p>Renda temporária enquanto você não pode trabalhar por doença ou acidente.</p></article>
-        <article class="card reveal is-hidden"><i class="fa-solid fa-user-check"></i><h3>Quem tem direito</h3><p>O auxílio-doença é destinado aos segurados do INSS que estejam temporariamente incapazes de trabalhar devido a doença ou acidente, desde que comprovem a incapacidade por meio de atestado ou perícia médica. É necessário manter a qualidade de segurado e, em alguns casos, cumprir a carência mínima exigida.</p></article>
-        <article class="card reveal is-hidden"><i class="fa-solid fa-notes-medical"></i><h3>Sem carência</h3><p>Algumas doenças graves dispensam a carência (ex.: câncer, esclerose múltipla).</p></article>
-        <article class="card reveal is-hidden"><i class="fa-solid fa-calendar-days"></i><h3>Como anda o processo</h3><p><strong>Atestmed</strong> para afastamentos curtos e <strong>perícia</strong> para casos maiores ou complexos.</p></article>
-        <article class="card reveal is-hidden"><i class="fa-solid fa-file-signature"></i><h3>Como pedir</h3><p>Meu INSS (app/site), 135 ou agência agendada. Leve RG, CNIS, laudos e exames.</p></article>
-        <article class="card reveal is-hidden"><i class="fa-solid fa-calculator"></i><h3>Valor</h3><p>Em geral, 91% da média dos salários de contribuição.</p></article>
-      </div>
-
-      <div class="section-title" style="margin-top:var(--sp-6)"><h2>Atestmed × Perícia</h2><div class="rule"></div></div>
-      <div class="compare reveal is-hidden">
-        <table role="table" aria-label="Comparativo Atestmed versus Perícia">
-          <thead><tr><th>Aspecto</th><th>Atestmed</th><th>Perícia</th></tr></thead>
-          <tbody>
-            <tr><td>Deslocamento</td><td>Não</td><td>Em regra, sim</td></tr>
-            <tr><td>Prazo</td><td>Mais ágil</td><td>Conforme agenda</td></tr>
-            <tr><td>Uso típico</td><td>Afastamentos curtos</td><td>Casos longos/complexos</td></tr>
-            <tr><td>Docs</td><td>Atestado claro e completo</td><td>Laudos e entrevista</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="section-title" style="margin-top:var(--sp-6)"><h2>Etapas</h2><div class="rule"></div></div>
-      <div class="timeline">
-        <div class="step reveal is-hidden"><i class="fa-solid fa-paper-plane"></i><h3>1. Requerer</h3><p>Meu INSS ou 135. Junte documentos.</p></div>
-        <div class="step reveal is-hidden"><i class="fa-solid fa-stethoscope"></i><h3>2. Avaliar</h3><p>Atestmed ou perícia.</p></div>
-        <div class="step reveal is-hidden"><i class="fa-solid fa-scale-balanced"></i><h3>3. Decisão</h3><p>Conceder, pedir mais docs ou negar.</p></div>
-        <div class="step reveal is-hidden"><i class="fa-solid fa-rotate-right"></i><h3>4. Manter</h3><p>Revisões até a alta.</p></div>
-      </div>
-
-      <div class="section-title" style="margin-top:var(--sp-6)"><h2>Documentos</h2><div class="rule"></div></div>
-      <div class="checklist reveal is-hidden" id="docs">
-        <label class="item"><input type="checkbox"/> RG/CPF e endereço</label>
-        <label class="item"><input type="checkbox"/> CNIS e carteira/holerites</label>
-        <label class="item"><input type="checkbox"/> Atestado com CID, CRM, data e período</label>
-        <label class="item"><input type="checkbox"/> Laudos e exames recentes</label>
-        <label class="item"><input type="checkbox"/> Relato do empregador (se tiver)</label>
-        <label class="item"><input type="checkbox"/> Procuração (se precisar)</label>
-      </div>
-
-      <div class="section-title" style="margin-top:var(--sp-6)"><h2>Saiba mais</h2><div class="rule"></div></div>
-      <div class="grid">
-        <article class="card reveal is-hidden" style="grid-column:span 6">
-          <i class="fa-solid fa-book-open"></i>
-          <h3>Conteúdo no blog</h3>
-          <p>Explicamos cada ponto com exemplos simples.</p>
-          <p><a href="https://www.marinhomendes.adv.br/blog/auxilio-doenca-2025/" target="_blank" rel="noopener">Leia o guia completo no blog</a></p>
-        </article>
-        <article class="card reveal is-hidden" style="grid-column:span 6">
-          <i class="fa-solid fa-shield-check"></i>
-          <h3>Quem somos</h3>
-          <p>Atuação ética e técnica, foco no seu caso.</p>
-          <p><a href="https://www.marinhomendes.adv.br/" target="_blank" rel="noopener">Conheça o escritório</a></p>
-        </article>
-        <article class="card reveal is-hidden" style="grid-column:span 12">
-          <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3);align-items:center;justify-content:space-between">
-            <div style="font-weight:700;color:var(--ink-1)">Siga o escritório nas redes</div>
-            <div class="social">
-              <a class="fb tip" data-tip="Visitar Facebook" href="https://www.facebook.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-              <a class="ig tip" data-tip="Visitar Instagram" href="https://www.instagram.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a class="li tip" data-tip="Visitar LinkedIn" href="https://www.linkedin.com/company/marinho-mendes/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero" aria-label="Destaque">
+      <div class="container">
+        <div>
+          <span class="kicker">Auxílio-Doença 2025</span>
+          <h1>Seus direitos, requisitos e passos — com amparo jurídico</h1>
+          <p class="lead">Entenda em linguagem direta quando o benefício é devido, como funciona <strong>Atestmed</strong> versus <strong>Perícia</strong>, quais <strong>documentos</strong> levar e como agir em caso de <strong>negativa</strong>. <em>Decisões sobre saúde e renda exigem orientação técnica — o acompanhamento jurídico reduz erros e acelera soluções.</em></p>
+          <div class="cta">
+            <a class="btn primary" href="#contato"><i class="fa-solid fa-scale-balanced"></i> Quero orientação jurídica</a>
+            <a class="btn secondary" href="#documentos"><i class="fa-solid fa-folder-open"></i> Ver documentos</a>
           </div>
-        </article>
+          <div class="legal" style="margin-top:14px"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <div><strong>Aviso:</strong> este conteúdo é informativo e não substitui consulta individualizada. A estratégia correta depende do seu vínculo, histórico contributivo e laudos — <strong>busque amparo jurídico</strong> para evitar indeferimentos e perdas financeiras.</div>
+          </div>
+        </div>
+        <aside class="card">
+          <h3><i class="fa-solid fa-gavel" aria-hidden="true"></i> O que muda a decisão</h3>
+          <div class="thumb" aria-hidden="true">
+            <picture>
+              <source srcset="img/card-advogado-consulta.webp" type="image/webp">
+              <img src="img/card-advogado-consulta.jpg" alt="Advogado em consulta com cliente, analisando documentos" loading="lazy">
+            </picture>
+          </div>
+          <ul class="muted" style="margin:0 0 0 18px; padding-left:10px">
+            <li><b>Qualidade de segurado</b> e carência (quando exigida).</li>
+            <li><b>Prova médica consistente</b> (CID, CRM, período e exames).</li>
+            <li><b>Coerência</b> entre função exercida e incapacidade descrita.</li>
+            <li><b>Escolha correta</b> entre Atestmed ou Perícia presencial.</li>
+          </ul>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="faq" aria-labelledby="tit-faq">
-    <div class="container">
-      <div class="section-title"><h2 id="tit-faq">Perguntas</h2><div class="rule"></div></div>
-      <div class="faq">
-        <details class="reveal is-hidden"><summary>Quem tem direito?</summary><p>Segurados do INSS com qualidade de segurado, carência (se pedir) e incapacidade temporária comprovada.</p></details>
-        <details class="reveal is-hidden"><summary>Precisa de perícia?</summary><p>Sim. Em casos curtos e simples, o Atestmed pode resolver.</p></details>
-        <details class="reveal is-hidden"><summary>Como acompanhar?</summary><p>App/site Meu INSS ou 135. Use o número do protocolo.</p></details>
-        <details class="reveal is-hidden"><summary>Negou. E agora?</summary><p>Recurso em até 30 dias. Se mantiver a negativa, avalie ação judicial.</p></details>
+    <!-- O ESSENCIAL -->
+    <section id="direitos" class="section white" aria-labelledby="tit-essencial">
+      <div class="container">
+        <div class="title-center">
+          <h2 id="tit-essencial">Auxílio-Doença — o essencial</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <h3><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Conceito</h3>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/card-medico.webp" type="image/webp">
+                <img src="img/card-medico.jpg" alt="Profissional de saúde analisando atestado médico" loading="lazy">
+              </picture>
+            </div>
+            <p class="muted">Benefício por incapacidade <strong>temporária</strong> para o trabalho por doença ou acidente. Para empregados, os <strong>primeiros 15 dias</strong> são do empregador; do 16º em diante, responsabilidade do INSS.</p>
+          </article>
+          <article class="card">
+            <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Requisitos</h3>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/card-carteira-trabalho.webp" type="image/webp">
+                <img src="img/card-carteira-trabalho.jpg" alt="Carteira de Trabalho e Previdência Social sobre a mesa" loading="lazy">
+              </picture>
+            </div>
+            <p class="muted">Em regra: <strong>qualidade de segurado</strong>, <strong>carência</strong> (12 contribuições) e <strong>incapacidade temporária comprovada</strong>. Há hipóteses de dispensa de carência (doenças graves).</p>
+          </article>
+          <article class="card">
+            <h3><i class="fa-solid fa-percent" aria-hidden="true"></i> Cálculo</h3>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/card-calculo.webp" type="image/webp">
+                <img src="img/card-calculo.jpg" alt="Cálculo de benefício com planilha e calculadora" loading="lazy">
+              </picture>
+            </div>
+            <p class="muted">Via de regra, <strong>91% da média</strong> dos salários de contribuição (regras de média conforme legislação vigente). <em>Orientação jurídica evita erros de base de cálculo e retroativos.</em></p>
+          </article>
+        </div>
+        <div class="legal" style="margin-top:16px"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i><div><strong>Importante:</strong> a interpretação de carência, qualidade de segurado, manutenção e eventuais exceções <strong>depende de análise técnica</strong>. <strong>Não decida sem amparo jurídico</strong>, especialmente em vínculos intermitentes, MEI, contribuintes individuais e períodos de graça.</div></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contato" class="contact" aria-labelledby="tit-contato">
-    <div class="container">
-      <div class="section-title"><h2 id="tit-contato">Fale com a gente</h2><div class="rule"></div></div>
-      <div class="grid">
-        <div class="col reveal is-hidden"><h3>Unidades</h3><p><strong>Campinas:</strong> Av. José Rocha Bonfim, 214, Bloco J – Sala 228 – Praça Capital, 13080‑650</p><p><strong>Hortolândia:</strong> Rua Antônio Nelson Barbosa, 93 – Jardim do Bosque, 13186‑231</p></div>
-        <div class="col reveal is-hidden"><h3>Atendimento</h3><p>Seg‑Sex: 08h30–18h</p><p>E‑mail: <a href="mailto:adm@marinhomendes.adv.br">adm@marinhomendes.adv.br</a></p><div class="social" style="margin-top:.75rem">
-            <a class="li tip" data-tip="Visitar LinkedIn" href="https://www.linkedin.com/company/marinho-mendes/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a class="ig tip" data-tip="Visitar Instagram" href="https://www.instagram.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a class="fb tip" data-tip="Visitar Facebook" href="https://www.facebook.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          </div></div>
-        <div class="col wide reveal is-hidden">
-          <h3>Envie sua mensagem</h3>
-          <form id="form" novalidate>
-            <div class="row">
-              <div><label for="nome">Nome completo</label><input id="nome" name="nome" autocomplete="name" required /><div class="error" id="e-nome">Informe seu nome completo.</div></div>
-              <div><label for="fone">Telefone</label><input id="fone" name="fone" type="tel" inputmode="tel" placeholder="(DDD) 99999‑9999" required /><div class="error" id="e-fone">Informe um telefone válido.</div></div>
-            </div>
-            <div class="row">
-              <div><label for="email">E‑mail</label><input id="email" name="email" type="email" autocomplete="email" required /><div class="error" id="e-mail">E‑mail inválido.</div></div>
-              <div><label for="assunto">Assunto</label><input id="assunto" name="assunto" placeholder="Auxílio‑doença, perícia, cálculo…" /></div>
-            </div>
-            <div class="row" style="grid-template-columns:1fr"><div><label for="msg">Mensagem</label><textarea id="msg" name="msg" rows="6" required></textarea><div class="error" id="e-msg">Descreva brevemente sua situação.</div></div></div>
-            <div class="submit"><button class="btn" type="submit">Enviar</button></div>
-          </form>
+    <!-- ATESTMED x PERÍCIA -->
+    <section class="section" aria-labelledby="tit-comp">
+      <div class="container">
+        <div class="title-center"><h2 id="tit-comp">Atestmed × Perícia — quando usar cada um</h2><div class="rule"></div></div>
+        <div class="table-wrap card">
+          <table role="table" aria-label="Comparativo Atestmed versus Perícia">
+            <thead><tr><th>Aspecto</th><th>Atestmed</th><th>Perícia Presencial</th></tr></thead>
+            <tbody>
+              <tr><td>Deslocamento</td><td>Não há deslocamento</td><td>Em regra, necessário</td></tr>
+              <tr><td>Prazo</td><td>Mais ágil</td><td>Depende de agenda</td></tr>
+              <tr><td>Indicação</td><td>Afastamentos curtos e simples</td><td>Casos prolongados, complexos ou controvertidos</td></tr>
+              <tr><td>Documentos</td><td>Atestado completo (CID, CRM, data, período)</td><td>Laudos, exames, prontuários e entrevista</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted" style="margin-top:8px"><span class="pill">Orientação</span> <em>A escolha do canal impacta o desfecho. Um advogado pode indicar o caminho com melhor aderência probatória para o seu caso.</em></p>
+      </div>
+    </section>
+
+    <!-- APOIO JURÍDICO (nova seção de reforço) -->
+    <section class="section white" id="apoio" aria-labelledby="tit-apoio">
+      <div class="container">
+        <div class="title-center"><h2 id="tit-apoio">Por que ter apoio jurídico no pedido</h2><div class="rule"></div></div>
+        <div class="grid-2">
+          <article class="card">
+            <ul class="muted" style="margin:0 0 0 18px; padding-left:10px">
+              <li><strong>Evita indeferimentos</strong> por documentos incompletos ou mal preenchidos.</li>
+              <li><strong>Reduz prazos</strong> com instrução correta e escolha adequada do canal.</li>
+              <li><strong>Garante a base de cálculo</strong> conforme a legislação vigente.</li>
+              <li><strong>Planeja a estratégia</strong> para recurso e, se necessário, ação judicial.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3><i class="fa-solid fa-shield-heart" aria-hidden="true"></i> Conte com orientação humana</h3>
+            <p class="muted">Nosso foco é a segurança jurídica e a tranquilidade da família. <em>Avaliação individual</em> evita perdas financeiras e retrabalho.</p>
+            <p class="muted">Leitura complementar no blog: <a class="link" href="https://www.marinhomendes.adv.br/blog/auxilio-doenca-2025/" target="_blank" rel="noopener">Guia completo do auxílio-doença</a>.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer aria-label="Rodapé" style="border-top:1px solid var(--line);padding:var(--sp-5) 0">
-    <div class="container" style="display:flex;flex-direction:column;align-items:center;gap:var(--sp-4);">
-      <img src="img/Design sem nome (7).png" alt="Logo Marinho Mendes" style="height:60px;">
-      <p style="margin:0;color:var(--ink-3);text-align:center;">© 2025 Marinho Mendes Sociedade de Advogados — conteúdo informativo. Não substitui consultoria jurídica.</p>
+    <!-- DOCUMENTOS -->
+    <section id="documentos" class="section" aria-labelledby="tit-docs">
+      <div class="container">
+        <div class="title-center"><h2 id="tit-docs">Documentos — checklist por perfil</h2><div class="rule"></div></div>
+        <div class="grid-2">
+          <div class="card">
+            <h3><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Comuns a todos</h3>
+            <div class="checklist" style="margin-top:8px">
+              <div class="doc"><i class="fa-solid fa-id-card" aria-hidden="true"></i><div><b>Identificação</b><div class="muted">RG e CPF; comprovante de endereço atualizado.</div></div></div>
+              <div class="doc"><i class="fa-solid fa-file-waveform" aria-hidden="true"></i><div><b>Prova médica</b><div class="muted">Atestado com <b>CID</b>, <b>CRM</b>, <b>data</b> e <b>período</b>; <b>exames</b> e <b>laudos</b> recentes.</div></div></div>
+              <div class="doc"><i class="fa-solid fa-list-check" aria-hidden="true"></i><div><b>Histórico contributivo</b><div class="muted">CNIS atualizado; carteiras/holerites quando houver.</div></div></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Específicos por vínculo</h3>
+            <div class="checklist" style="margin-top:8px">
+              <div class="doc"><i class="fa-solid fa-user-tie" aria-hidden="true"></i><div><b>Empregado</b><div class="muted">Relato do empregador (CAT quando acidente), atestados de afastamento e <em>PPP</em> quando aplicável.</div></div></div>
+              <div class="doc"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><div><b>Contribuinte individual / MEI</b><div class="muted">Guias de recolhimento (GPS/DAS), comprovantes de pagamento e eventual RPA/notas.</div></div></div>
+              <div class="doc"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i><div><b>Segurado facultativo</b><div class="muted">Comprovantes de contribuição e manutenção da qualidade de segurado (período de graça).</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="legal" style="margin-top:16px"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><div><strong>Atenção:</strong> documentação incompleta é causa recorrente de indeferimento. <strong>Amparo jurídico</strong> ajuda a estruturar provas e a escolher o canal correto de requerimento.</div></div>
+      </div>
+    </section>
+
+    <!-- FAMILIARES E CUIDADORES -->
+    <section id="familia" class="section white" aria-labelledby="tit-familia">
+      <div class="container">
+        <div class="title-center"><h2 id="tit-familia">Orientação para familiares e cuidadores</h2><div class="rule"></div></div>
+        <div class="grid-2">
+          <article class="card">
+            <h3><i class="fa-solid fa-people-group" aria-hidden="true"></i> Como ajudar na documentação</h3>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/familia-docs.webp" type="image/webp">
+                <img src="img/familia-docs.jpg" alt="Filha organizando laudos e atestados ao lado do segurado" loading="lazy">
+              </picture>
+            </div>
+            <ul class="muted" style="margin:0 0 0 18px; padding-left:10px">
+              <li>Reúna <strong>RG/CPF</strong>, comprovante de endereço e <strong>CNIS</strong> (Meu INSS ▶ Extrato de Contribuição).</li>
+              <li>Garanta que o <strong>atestado</strong> tenha <strong>CID, CRM, data e período</strong> legível.</li>
+              <li>Separe <strong>laudos e exames recentes</strong> com datas e assinaturas.</li>
+              <li>Empregados: alinhar com o <strong>RH</strong>; registrar <strong>CAT</strong> se for acidente; providenciar <strong>PPP</strong> quando aplicável.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i> Representação e acompanhamento</h3>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/familia-represent.webp" type="image/webp">
+                <img src="img/familia-represent.jpg" alt="Cônjuge acompanhando o pedido no aplicativo Meu INSS" loading="lazy">
+              </picture>
+            </div>
+            <ul class="muted" style="margin:0 0 0 18px; padding-left:10px">
+              <li><strong>Procuração</strong> simples pode autorizar atendimento e obtenção de documentos; para processo judicial, é necessário instrumento específico.</li>
+              <li>Acompanhe o protocolo pelo <strong>Meu INSS</strong> ou <strong>135</strong> e registre cada atualização.</li>
+              <li>Observe o <strong>prazo de recurso</strong> de <strong>30 dias</strong> após a ciência da decisão.</li>
+              <li><strong>LGPD</strong>: utilize o consentimento do segurado para compartilhar dados com a equipe jurídica.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="legal" style="margin-top:16px"><i class="fa-solid fa-heart-circle-check" aria-hidden="true"></i>
+          <div><strong>Apoio que tranquiliza:</strong> familiares podem agilizar documentos e prazos, mas as decisões estratégicas devem ser feitas com <strong>amparo jurídico</strong>, respeitando a privacidade e a vontade do segurado.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ETAPAS -->
+    <section id="processo" class="section white" aria-labelledby="tit-steps">
+      <div class="container">
+        <div class="title-center"><h2 id="tit-steps">Etapas do pedido</h2><div class="rule"></div></div>
+        <div class="timeline">
+          <div class="step">
+            <div class="n">1</div>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/etapa-requerer.webp" type="image/webp">
+                <img src="img/etapa-requerer.jpg" alt="Pessoa solicitando benefício no aplicativo Meu INSS" loading="lazy">
+              </picture>
+            </div>
+            <h3>Requerer</h3>
+            <p class="muted">Meu INSS (app/site) ou 135. Escolha entre Atestmed e Perícia conforme o caso.</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/etapa-instruir.webp" type="image/webp">
+                <img src="img/etapa-instruir.jpg" alt="Organização de documentos médicos e CNIS em mesa" loading="lazy">
+              </picture>
+            </div>
+            <h3>Instruir</h3>
+            <p class="muted">Anexar documentos adequados. <em>Assessoria jurídica</em> organiza a prova e evita lacunas.</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/etapa-decisao.webp" type="image/webp">
+                <img src="img/etapa-decisao.jpg" alt="Médico perito analisando laudos e sistema" loading="lazy">
+              </picture>
+            </div>
+            <h3>Decisão</h3>
+            <p class="muted">Concessão, exigência de mais documentos ou indeferimento. Observe prazos.</p>
+          </div>
+          <div class="step">
+            <div class="n">4</div>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/etapa-recurso.webp" type="image/webp">
+                <img src="img/etapa-recurso.jpg" alt="Advogado preparando recurso administrativo no computador" loading="lazy">
+              </picture>
+            </div>
+            <h3>Recurso</h3>
+            <p class="muted">Negou? Recorra em até <b>30 dias</b>. Persistindo o indeferimento, avalie ação judicial.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section" aria-labelledby="tit-faq">
+      <div class="container">
+        <div class="title-center"><h2 id="tit-faq">Perguntas frequentes</h2><div class="rule"></div></div>
+        <div class="grid-2">
+          <details class="card"><summary><h3><i class="fa-solid fa-person-circle-question" aria-hidden="true"></i> Quem tem direito?</h3></summary><p class="muted">Segurados do INSS com qualidade de segurado, carência (quando exigida) e incapacidade <em>temporária</em> comprovada para o trabalho.</p></details>
+          <details class="card"><summary><h3><i class="fa-solid fa-stethoscope" aria-hidden="true"></i> Precisa de perícia?</h3></summary><p class="muted">Casos simples/curtos podem ser pelo <b>Atestmed</b>. Situações longas/complexas tendem a exigir perícia presencial.</p></details>
+          <details class="card"><summary><h3><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Como acompanhar?</h3></summary><p class="muted">Pelo Meu INSS (app/site) ou 135 com o número de protocolo.</p></details>
+          <details class="card"><summary><h3><i class="fa-solid fa-gavel" aria-hidden="true"></i> Negou. E agora?</h3></summary><p class="muted">Recurso administrativo em até <b>30 dias</b>. Persistindo a negativa, <b>busque amparo jurídico</b> para discutir judicialmente.</p></details>
+        </div>
+        <div class="card" style="margin-top:10px">
+          <h3><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Prova social (ética)</h3>
+          <p class="muted">Aprofunde no tema com conteúdo técnico do nosso blog — sem promessa de resultado: <a class="link" href="https://www.marinhomendes.adv.br/blog/auxilio-doenca-2025/" target="_blank" rel="noopener">Guia do auxílio‑doença 2025</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section contact" aria-labelledby="tit-contato">
+      <div class="container">
+        <div class="title-center"><h2 id="tit-contato">Contato imediato</h2><div class="rule"></div></div>
+        <div class="grid">
+          <div class="card">
+            <h3><i class="fa-solid fa-building" aria-hidden="true"></i> Unidades</h3>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/fachada-campinas.webp" type="image/webp">
+                <img src="img/fachada-campinas.jpg" alt="Fachada do escritório em Campinas (Praça Capital)" loading="lazy">
+              </picture>
+            </div>
+            <p class="muted"><b>Campinas/SP</b><br>Av. José Rocha Bonfim, 214 – Bloco J, Sala 228 – Praça Capital – 13080-650</p>
+            <div class="thumb" aria-hidden="true">
+              <picture>
+                <source srcset="img/fachada-hortolandia.webp" type="image/webp">
+                <img src="img/fachada-hortolandia.jpg" alt="Fachada do escritório em Hortolândia (Jardim do Bosque)" loading="lazy">
+              </picture>
+            </div>
+            <p class="muted"><b>Hortolândia/SP</b><br>Rua Antônio Nelson Barbosa, 93 – Jardim do Bosque – 13186-231</p>
+            <p class="muted">Horário: dias úteis, 08:30–18:00</p>
+            <div class="social" aria-label="Redes sociais do escritório" style="margin-top:.6rem">
+              <a href="https://www.facebook.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+              <a href="https://www.instagram.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/company/marinho-mendes/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            </div>
+            <div class="legal" style="margin-top:10px"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><div><strong>Transparência:</strong> este contato não cria relação cliente-advogado. O tratamento de dados observa a LGPD.</div></div>
+          </div>
+          <div class="card">
+            <form id="form" novalidate>
+              <div class="row two">
+                <div>
+                  <label for="nome">Nome completo</label>
+                  <input id="nome" name="nome" autocomplete="name" required>
+                  <div class="errors" id="e-nome">Informe seu nome completo.</div>
+                </div>
+                <div>
+                  <label for="fone">Telefone</label>
+                  <input id="fone" name="fone" type="tel" inputmode="tel" placeholder="(DDD) 99999-9999" required>
+                  <div class="errors" id="e-fone">Informe um telefone válido.</div>
+                </div>
+              </div>
+              <div class="row two" style="margin-top:10px">
+                <div>
+                  <label for="email">E-mail</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required>
+                  <div class="errors" id="e-mail">E-mail inválido.</div>
+                </div>
+                <div>
+                  <label for="assunto">Assunto</label>
+                  <select id="assunto" name="assunto">
+                    <option>Auxílio-Doença</option>
+                    <option>Perícia / Atestmed</option>
+                    <option>Recurso administrativo</option>
+                    <option>Ação judicial</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row" style="margin-top:10px">
+                <div>
+                  <label for="msg">Mensagem</label>
+                  <textarea id="msg" name="msg" rows="6" placeholder="Descreva brevemente sua situação." required></textarea>
+                  <div class="errors" id="e-msg">Descreva brevemente sua situação.</div>
+                </div>
+              </div>
+              <div class="consent" role="group" aria-labelledby="lgpd-t">
+                <label for="lgpd"><input type="checkbox" id="lgpd" aria-describedby="lgpd-t lgpd-d"> <span><span id="lgpd-t">Consentimento LGPD</span><small id="lgpd-d">Confirmo que li e concordo com o tratamento dos meus dados pessoais exclusivamente para finalidade de atendimento, conforme a LGPD.</small></span></label>
+              </div>
+              <div style="display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap">
+                <button class="btn primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+                <a class="btn secondary" href="https://wa.me/5519974100605?text=Ol%C3%A1%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20sobre%20aux%C3%ADlio-doen%C3%A7a" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <div class="social" aria-label="Redes sociais" style="margin-left:auto">
+                  <a href="https://www.facebook.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                  <a href="https://www.instagram.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                  <a href="https://www.linkedin.com/company/marinho-mendes/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky CTA (mobile) -->
+  <div class="sticky-cta" role="region" aria-label="Atalho rápido para WhatsApp">
+    <div class="container">
+      <span style="color:#E9EEF5;font-weight:700">Precisa falar agora?</span>
+      <a class="btn primary" href="https://wa.me/5519974100605?text=Ol%C3%A1%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20sobre%20aux%C3%ADlio-doen%C3%A7a" target="_blank" rel="noopener" aria-label="Falar agora no WhatsApp"><i class="fa-brands fa-whatsapp"></i> Falar agora no WhatsApp</a>
+    </div>
+  </div>
+
+  <footer aria-label="Rodapé">
+    <div class="container foot">
+      <div>
+        <strong>Marinho Mendes Sociedade de Advogados</strong>
+        <p class="muted">Conteúdo informativo, conforme Prov. OAB 205/2021. Sem promessa de resultado. Contato não gera relação cliente-advogado.</p>
+      </div>
+      <div>
+        <strong>Contatos</strong>
+        <p class="muted">E-mail: <a class="link" href="mailto:adm@marinhomendes.adv.br">adm@marinhomendes.adv.br</a><br>Fone/Fax: (19) 3845-4946<br>WhatsApp: <a class="link" href="https://wa.me/5519974100605" target="_blank" rel="noopener">(19) 97410-0605</a></p>
+      </div>
+      <div>
+        <strong>Leituras & Recursos</strong>
+        <ul class="muted" style="margin:.3rem 0 0 1.1rem">
+          <li><a class="link" href="https://www.marinhomendes.adv.br/blog/auxilio-doenca-2025/" target="_blank" rel="noopener">Guia completo no Blog</a></li>
+          <li><a class="link" href="https://www.marinhomendes.adv.br/" target="_blank" rel="noopener">Site institucional</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Siga o escritório</strong>
+        <div class="social" aria-label="Redes sociais do escritório">
+          <a href="https://www.facebook.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/company/marinho-mendes/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div style="grid-column:1/-1" class="copy">© <span id="year"></span> Marinho Mendes Sociedade de Advogados. Todos os direitos reservados.</div>
     </div>
   </footer>
 
-  <!-- WhatsApp fixo -->
-  <a class="whats" href="https://wa.me/5519974100605?text=Ol%C3%A1%2C%20gostaria%20de%20orienta%C3%A7%C3%A3o%20sobre%20aux%C3%ADlio-doen%C3%A7a" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <!-- WhatsApp flutuante -->
+  <a class="whats" href="https://wa.me/5519974100605?text=Ol%C3%A1%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20sobre%20aux%C3%ADlio-doen%C3%A7a" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
 
   <script>
-  (function(){
-    const $ = (s,c=document)=>c.querySelector(s); const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
-    /* Progresso + header */
-    const progress=$('#progress'), hdr=$('#hdr');
-    let lastCompact = false;
-    const onScrollUI=()=>{
-      const st=document.documentElement.scrollTop||document.body.scrollTop;
-      const sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-      progress.style.width=(sh?(st/sh)*100:0)+'%';
-      const compact = st>8;
-      if (compact !== lastCompact) {
-        hdr.classList.toggle('is-compact',compact);
-        lastCompact = compact;
+    (function(){
+      const $=(s,c=document)=>c.querySelector(s); const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
+      // Ano
+      $('#year').textContent=new Date().getFullYear();
+      // Barra de progresso
+      const bar=$('#progress');
+      addEventListener('scroll',()=>{
+        const h=document.documentElement; const t=h.scrollTop; const m=h.scrollHeight-h.clientHeight; bar.style.width=(t/m*100)+'%'
+      },{passive:true});
+      // Menu móvel
+      const burger=$('.burger'), mobile=$('#mnav');
+      if(burger){ burger.addEventListener('click',()=>{const open=mobile.classList.toggle('open'); burger.setAttribute('aria-expanded',String(open))}) }
+      // Scrollspy simples
+      const links=$$('.nav-link'); const sections=links.map(a=>$((a.getAttribute('href')))).filter(Boolean);
+      const spy=()=>{ const y=scrollY+120; let cur=sections[0]; for(const s of sections){ if(s.offsetTop<=y) cur=s } links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur.id)) };
+      addEventListener('scroll',spy,{passive:true}); spy();
+      // Validação básica do formulário
+      const f=$('#form');
+      if(f){ const ok=t=>String(t||'').trim().length>1; const mail=v=>/.+@.+\..+/.test(String(v||''));
+        const show=(id,good)=>{ const el=$(id); if(el) el.style.display=good?'none':'block' };
+        f.addEventListener('submit',e=>{
+          e.preventDefault();
+          const a=ok(f.nome.value), b=ok(f.fone.value), c=mail(f.email.value), d=ok(f.msg.value), lg=$('#lgpd').checked;
+          show('#e-nome',a); show('#e-fone',b); show('#e-mail',c); show('#e-msg',d);
+          if(a&&b&&c&&d&&lg){
+            const payload={ nome:f.nome.value, fone:f.fone.value, email:f.email.value, assunto:f.assunto.value, msg:f.msg.value, lgpd:lg, origem:'LP-Aux-2025' };
+            console.log('lead-submission', payload);
+            alert('Mensagem enviada com sucesso. Um advogado entrará em contato em breve.');
+            f.reset();
+          } else if(!lg){
+            alert('Para prosseguir, confirme o consentimento LGPD.');
+          }
+        })
       }
-    };
-    window.addEventListener('scroll',onScrollUI,{passive:true});
-    onScrollUI();
-
-    /* Parallax melhorado: camada própria com translateY + leve scale */
-    const bg=document.querySelector('.hero-bg');
-    const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const wideEnough    = window.matchMedia('(min-width: 521px)').matches;
-    let enableParallax  = !prefersReduce && wideEnough;
-
-    let ticking=false,lastY=0;
-    const parallax=()=>{ if(!enableParallax||!bg){ticking=false;return;} const y=lastY; const dy=Math.max(-140, Math.min(140, y*-0.25)); bg.style.transform='translateY('+dy+'px) scale(1.08)'; ticking=false};
-    const onScroll=()=>{ lastY=window.scrollY||window.pageYOffset; if(!ticking){requestAnimationFrame(parallax); ticking=true} };
-    if(enableParallax){ window.addEventListener('scroll',onScroll,{passive:true}); parallax(); }
-    window.addEventListener('resize',()=>{ enableParallax=!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(min-width: 521px)').matches; if(!enableParallax&&bg){ bg.style.transform='none'; } });
-
-    /* Scrollspy */
-    const links=$$('.nav-link'), sections=links.map(a=>$(a.getAttribute('href'))).filter(Boolean); const spy=()=>{const y=window.scrollY+120; let cur=sections[0]; for(const s of sections){if(s.offsetTop<=y)cur=s} links.forEach(a=>a.classList.toggle('active',a.hash==='#'+cur.id))}; window.addEventListener('scroll',spy,{passive:true}); spy();
-    links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=$(a.getAttribute('href')); if(!t)return; const top=t.getBoundingClientRect().top+window.scrollY-72; window.scrollTo({top,behavior:'smooth'})}));
-
-    /* Reveal */
-    const reveal=$$('.reveal'); const show=el=>el.classList.remove('is-hidden'); if('IntersectionObserver'in window){const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){show(en.target); io.unobserve(en.target)}})},{rootMargin:'-10% 0px -10% 0px'}); reveal.forEach(el=>io.observe(el))} else {reveal.forEach(show)}
-
-    /* Validação simples do formulário */
-    const f=$('#form'); if(f){const ok=t=>String(t||'').trim().length>1, mail=v=>/.+@.+\..+/.test(String(v||'')); const err=(id,good)=>{$(id).style.display=good?'none':'block'}; f.addEventListener('submit',e=>{e.preventDefault(); const a=ok(f.nome.value), b=ok(f.fone.value), c=mail(f.email.value), d=ok(f.msg.value); err('#e-nome',a); err('#e-fone',b); err('#e-mail',c); err('#e-msg',d); if(a&&b&&c&&d){ alert('Mensagem enviada com sucesso. Retornaremos em breve.'); f.reset(); } else { const first=['#e-nome','#e-fone','#e-mail','#e-msg'].map(s=>$(s)).find(x=>x&&x.style.display==='block'); if(first){ first.previousElementSibling.focus(); }}})}
-  })();
+    })();
   </script>
 </body>
 </html>
