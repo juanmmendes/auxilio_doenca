@@ -170,7 +170,7 @@
   <header>
     <div class="container topbar">
       <div class="brand">
-        <img src="img/logo-mm-monocromatico.png" alt="Marinho Mendes Advogados" loading="lazy" />
+        <img src="img/LogoBranca.png" alt="Marinho Mendes Advogados" loading="lazy" />
         <div>
           <div>Marinho Mendes Advogados</div>
           <small>Direito Previdenciário • Conteúdo informativo (OAB)</small>
@@ -581,41 +581,41 @@
   <a class="whats" href="https://wa.me/5519974100605?text=Ol%C3%A1%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20sobre%20aux%C3%ADlio-doen%C3%A7a" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
 
   <script>
-    (function(){
-      const $=(s,c=document)=>c.querySelector(s); const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
-      // Ano
-      $('#year').textContent=new Date().getFullYear();
-      // Barra de progresso
-      const bar=$('#progress');
-      addEventListener('scroll',()=>{
-        const h=document.documentElement; const t=h.scrollTop; const m=h.scrollHeight-h.clientHeight; bar.style.width=(t/m*100)+'%'
-      },{passive:true});
-      // Menu móvel
-      const burger=$('.burger'), mobile=$('#mnav');
-      if(burger){ burger.addEventListener('click',()=>{const open=mobile.classList.toggle('open'); burger.setAttribute('aria-expanded',String(open))}) }
-      // Scrollspy simples
-      const links=$$('.nav-link'); const sections=links.map(a=>$((a.getAttribute('href')))).filter(Boolean);
-      const spy=()=>{ const y=scrollY+120; let cur=sections[0]; for(const s of sections){ if(s.offsetTop<=y) cur=s } links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur.id)) };
-      addEventListener('scroll',spy,{passive:true}); spy();
-      // Validação básica do formulário
-      const f=$('#form');
-      if(f){ const ok=t=>String(t||'').trim().length>1; const mail=v=>/.+@.+\..+/.test(String(v||''));
-        const show=(id,good)=>{ const el=$(id); if(el) el.style.display=good?'none':'block' };
-        f.addEventListener('submit',e=>{
-          e.preventDefault();
-          const a=ok(f.nome.value), b=ok(f.fone.value), c=mail(f.email.value), d=ok(f.msg.value), lg=$('#lgpd').checked;
-          show('#e-nome',a); show('#e-fone',b); show('#e-mail',c); show('#e-msg',d);
-          if(a&&b&&c&&d&&lg){
-            const payload={ nome:f.nome.value, fone:f.fone.value, email:f.email.value, assunto:f.assunto.value, msg:f.msg.value, lgpd:lg, origem:'LP-Aux-2025' };
-            console.log('lead-submission', payload);
-            alert('Mensagem enviada com sucesso. Um advogado entrará em contato em breve.');
-            f.reset();
-          } else if(!lg){
-            alert('Para prosseguir, confirme o consentimento LGPD.');
-          }
-        })
-      }
-    })();
+      (function(){
+        const $=(s,c=document)=>c.querySelector(s); const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
+        // Ano
+        $('#year').textContent=new Date().getFullYear();
+        // Barra de progresso
+        const bar=$('#progress');
+        addEventListener('scroll',()=>{
+          const h=document.documentElement; const t=h.scrollTop; const m=h.scrollHeight-h.clientHeight; bar.style.width=(t/m*100)+'%'
+        },{passive:true});
+        // Menu móvel
+        const burger=$('.burger'), mobile=$('#mnav');
+        if(burger){ burger.addEventListener('click',()=>{const open=mobile.classList.toggle('open'); burger.setAttribute('aria-expanded',String(open))}) }
+        // Scrollspy simples
+        const links=$$('.nav-link'); const sections=links.map(a=>$((a.getAttribute('href')))).filter(Boolean);
+        const spy=()=>{ const y=scrollY+120; let cur=sections[0]; for(const s of sections){ if(s.offsetTop<=y) cur=s } links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur.id)) };
+        addEventListener('scroll',spy,{passive:true}); spy();
+        // Validação básica do formulário
+        const f=$('#form');
+        if(f){ const ok=t=>String(t||'').trim().length>1; const mail=v=>/.+@.+\..+/.test(String(v||''));
+          const show=(id,good)=>{ const el=$(id); if(el) el.style.display=good?'none':'block' };
+          f.addEventListener('submit',e=>{
+            e.preventDefault();
+            const a=ok(f.nome.value), b=ok(f.fone.value), c=mail(f.email.value), d=ok(f.msg.value), lg=$('#lgpd').checked;
+            show('#e-nome',a); show('#e-fone',b); show('#e-mail',c); show('#e-msg',d);
+            if(a&&b&&c&&d&&lg){
+              const payload={ nome:f.nome.value, fone:f.fone.value, email:f.email.value, assunto:f.assunto.value, msg:f.msg.value, lgpd:lg, origem:'LP-Aux-2025' };
+              console.log('lead-submission', payload);
+              alert('Mensagem enviada com sucesso. Um advogado entrará em contato em breve.');
+              f.reset();
+            } else if(!lg){
+              alert('Para prosseguir, confirme o consentimento LGPD.');
+            }
+          })
+        }
+      })();
   </script>
 </body>
 </html>
