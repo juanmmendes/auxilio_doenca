@@ -162,6 +162,12 @@
 
     /* Acessibilidade e motion */
     @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+
+    /* Mobile: esconder completamente o sticky CTA */
+@media (max-width: 899.98px){
+  .sticky-cta{ display:none !important; }
+}
+
   </style>
 </head>
 <body>
