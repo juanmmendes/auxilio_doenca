@@ -97,11 +97,11 @@
     .card h3 i{color:var(--gold)}
     .muted{color:var(--muted)}
 
-    /* Miniaturas ilustrativas (CRO + empatia) */
+    /* Miniaturas */
     .thumb{display:block;width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin:.4rem 0 .8rem}
     .thumb img{width:100%;height:auto;display:block}
 
-    /* Comparativo e timeline */
+    /* Tabela e timeline */
     .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
     table{width:100%;border-collapse:collapse}
     thead th{background:#F8FAFD;color:#0E1520}
@@ -121,7 +121,7 @@
 
     .pill{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;font-weight:700;font-size:.9rem}
 
-    /* Avisos jurídicos (destaque ético) */
+    /* Avisos jurídicos */
     .legal{display:flex;gap:12px;align-items:flex-start;background:#FFFAF1;border:1px solid #F0E3C6;border-radius:12px;padding:12px 14px;color:#6B5725}
     .legal i{color:#6B5725}
 
@@ -135,12 +135,25 @@
     @media(min-width:700px){.row.two{grid-template-columns:1fr 1fr}}
     .errors{display:none;color:var(--danger);font-weight:700;font-size:.92rem}
 
-    /* Consentimento LGPD (bloco destacado) */
-    .consent{margin-top:16px;border:1px solid #E8D9B6;background:linear-gradient(180deg,#FFF9EA,#FFFDF7);border-radius:12px;padding:12px 14px;color:#5E4B20}
-    .consent label{display:flex;gap:10px;align-items:flex-start;font-weight:700}
-    .consent small{display:block;color:#6B5725;font-weight:600}
+    /* Consentimento LGPD — compacto */
+    .consent{
+      margin-top:10px;
+      border:1px solid #E8D9B6;
+      background:#FFF9EA;
+      border-radius:10px;
+      padding:8px 10px;     /* reduzido */
+      color:#5E4B20;
+    }
+    .consent label{display:flex;gap:8px;align-items:flex-start;font-weight:700;font-size:.95rem;line-height:1.4}
+    .consent small{display:block;color:#6B5725;font-weight:600;font-size:.9rem}
+    #lgpd{margin-top:2px}
+    @media(max-width:700px){
+      .consent{padding:8px}
+      .consent label{font-size:.92rem}
+      .consent small{font-size:.85rem}
+    }
 
-    /* Social (acessível) */
+    /* Social */
     .social{display:flex;gap:.6rem;flex-wrap:wrap}
     .social a{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
     .social a:hover{filter:brightness(1.03)}
@@ -150,6 +163,8 @@
     .sticky-cta .container{display:flex;gap:10px;justify-content:space-between;align-items:center}
     .sticky-cta .btn{padding:.85rem 1rem}
     @media(min-width:900px){.sticky-cta{display:none}}
+    /* Mobile: esconder completamente o sticky CTA */
+    @media (max-width: 899.98px){ .sticky-cta{ display:none !important; } }
 
     /* WhatsApp flutuante */
     .whats{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#fff;border:none;box-shadow:0 12px 22px rgba(0,0,0,.18);z-index:70}
@@ -162,12 +177,6 @@
 
     /* Acessibilidade e motion */
     @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
-
-    /* Mobile: esconder completamente o sticky CTA */
-@media (max-width: 899.98px){
-  .sticky-cta{ display:none !important; }
-}
-
   </style>
 </head>
 <body>
@@ -183,7 +192,7 @@
         </div>
       </div>
       <nav aria-label="Navegação principal">
-        <a href="#direitos" class="nav-link">O essencial</a>
+        <!-- REMOVIDO: O essencial -->
         <a href="#documentos" class="nav-link">Documentos</a>
         <a href="#familia" class="nav-link">Familiares</a>
         <a href="#processo" class="nav-link">Etapas</a>
@@ -194,7 +203,7 @@
     </div>
     <div class="mobile" id="mnav" role="dialog" aria-label="Menu">
       <div class="container wrap">
-        <a href="#direitos">O essencial</a>
+        <!-- REMOVIDO: O essencial -->
         <a href="#documentos">Documentos</a>
         <a href="#familia">Familiares</a>
         <a href="#processo">Etapas</a>
@@ -224,10 +233,7 @@
         <aside class="card">
           <h3><i class="fa-solid fa-gavel" aria-hidden="true"></i> O que muda a decisão</h3>
           <div class="thumb" aria-hidden="true">
-            <picture>
-              <source srcset="img/card-advogado-consulta.webp" type="image/webp">
-              <img src="img/card-advogado-consulta.jpg" alt="Advogado em consulta com cliente, analisando documentos" loading="lazy">
-            </picture>
+            <img src="img/advgd.png" alt="Advogado em consulta com cliente, analisando documentos" loading="lazy">
           </div>
           <ul class="muted" style="margin:0 0 0 18px; padding-left:10px">
             <li><b>Qualidade de segurado</b> e carência (quando exigida).</li>
@@ -250,30 +256,21 @@
           <article class="card">
             <h3><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Conceito</h3>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/card-medico.webp" type="image/webp">
-                <img src="img/card-medico.jpg" alt="Profissional de saúde analisando atestado médico" loading="lazy">
-              </picture>
+              <img src="img/consulta_med.png" alt="Profissional de saúde analisando atestado médico" loading="lazy">
             </div>
             <p class="muted">Benefício por incapacidade <strong>temporária</strong> para o trabalho por doença ou acidente. Para empregados, os <strong>primeiros 15 dias</strong> são do empregador; do 16º em diante, responsabilidade do INSS.</p>
           </article>
           <article class="card">
             <h3><i class="fa-solid fa-user-check" aria-hidden="true"></i> Requisitos</h3>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/card-carteira-trabalho.webp" type="image/webp">
-                <img src="img/card-carteira-trabalho.jpg" alt="Carteira de Trabalho e Previdência Social sobre a mesa" loading="lazy">
-              </picture>
+              <img src="img/clt.png" alt="Carteira de Trabalho e Previdência Social sobre a mesa" loading="lazy">
             </div>
             <p class="muted">Em regra: <strong>qualidade de segurado</strong>, <strong>carência</strong> (12 contribuições) e <strong>incapacidade temporária comprovada</strong>. Há hipóteses de dispensa de carência (doenças graves).</p>
           </article>
           <article class="card">
             <h3><i class="fa-solid fa-percent" aria-hidden="true"></i> Cálculo</h3>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/card-calculo.webp" type="image/webp">
-                <img src="img/card-calculo.jpg" alt="Cálculo de benefício com planilha e calculadora" loading="lazy">
-              </picture>
+              <img src="img/calculo.png" alt="Cálculo de benefício com planilha e calculadora" loading="lazy">
             </div>
             <p class="muted">Via de regra, <strong>91% da média</strong> dos salários de contribuição (regras de média conforme legislação vigente). <em>Orientação jurídica evita erros de base de cálculo e retroativos.</em></p>
           </article>
@@ -301,7 +298,7 @@
       </div>
     </section>
 
-    <!-- APOIO JURÍDICO (nova seção de reforço) -->
+    <!-- APOIO JURÍDICO -->
     <section class="section white" id="apoio" aria-labelledby="tit-apoio">
       <div class="container">
         <div class="title-center"><h2 id="tit-apoio">Por que ter apoio jurídico no pedido</h2><div class="rule"></div></div>
@@ -357,10 +354,7 @@
           <article class="card">
             <h3><i class="fa-solid fa-people-group" aria-hidden="true"></i> Como ajudar na documentação</h3>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/familia-docs.webp" type="image/webp">
-                <img src="img/familia-docs.jpg" alt="Filha organizando laudos e atestados ao lado do segurado" loading="lazy">
-              </picture>
+              <img src="img/analise_advgd.png" alt="Filha organizando laudos e atestados ao lado do segurado" loading="lazy">
             </div>
             <ul class="muted" style="margin:0 0 0 18px; padding-left:10px">
               <li>Reúna <strong>RG/CPF</strong>, comprovante de endereço e <strong>CNIS</strong> (Meu INSS ▶ Extrato de Contribuição).</li>
@@ -372,10 +366,7 @@
           <article class="card">
             <h3><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i> Representação e acompanhamento</h3>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/familia-represent.webp" type="image/webp">
-                <img src="img/familia-represent.jpg" alt="Cônjuge acompanhando o pedido no aplicativo Meu INSS" loading="lazy">
-              </picture>
+              <img src="img/consulta_advgd.png" alt="Cônjuge acompanhando o pedido no aplicativo Meu INSS" loading="lazy">
             </div>
             <ul class="muted" style="margin:0 0 0 18px; padding-left:10px">
               <li><strong>Procuração</strong> simples pode autorizar atendimento e obtenção de documentos; para processo judicial, é necessário instrumento específico.</li>
@@ -399,10 +390,7 @@
           <div class="step">
             <div class="n">1</div>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/etapa-requerer.webp" type="image/webp">
-                <img src="img/etapa-requerer.jpg" alt="Pessoa solicitando benefício no aplicativo Meu INSS" loading="lazy">
-              </picture>
+              <img src="img/inss.png" alt="Pessoa solicitando benefício no aplicativo Meu INSS" loading="lazy">
             </div>
             <h3>Requerer</h3>
             <p class="muted">Meu INSS (app/site) ou 135. Escolha entre Atestmed e Perícia conforme o caso.</p>
@@ -410,10 +398,7 @@
           <div class="step">
             <div class="n">2</div>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/etapa-instruir.webp" type="image/webp">
-                <img src="img/etapa-instruir.jpg" alt="Organização de documentos médicos e CNIS em mesa" loading="lazy">
-              </picture>
+              <img src="img/organização.png" alt="Organização de documentos médicos e CNIS em mesa" loading="lazy">
             </div>
             <h3>Instruir</h3>
             <p class="muted">Anexar documentos adequados. <em>Assessoria jurídica</em> organiza a prova e evita lacunas.</p>
@@ -421,10 +406,7 @@
           <div class="step">
             <div class="n">3</div>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/etapa-decisao.webp" type="image/webp">
-                <img src="img/etapa-decisao.jpg" alt="Médico perito analisando laudos e sistema" loading="lazy">
-              </picture>
+              <img src="img/pericia.png" alt="Médico perito analisando laudos e sistema" loading="lazy">
             </div>
             <h3>Decisão</h3>
             <p class="muted">Concessão, exigência de mais documentos ou indeferimento. Observe prazos.</p>
@@ -432,10 +414,7 @@
           <div class="step">
             <div class="n">4</div>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/etapa-recurso.webp" type="image/webp">
-                <img src="img/etapa-recurso.jpg" alt="Advogado preparando recurso administrativo no computador" loading="lazy">
-              </picture>
+              <img src="img/firma.png" alt="Advogado preparando recurso administrativo no computador" loading="lazy">
             </div>
             <h3>Recurso</h3>
             <p class="muted">Negou? Recorra em até <b>30 dias</b>. Persistindo o indeferimento, avalie ação judicial.</p>
@@ -456,7 +435,7 @@
         </div>
         <div class="card" style="margin-top:10px">
           <h3><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Prova social (ética)</h3>
-          <p class="muted">Aprofunde no tema com conteúdo técnico do nosso blog — sem promessa de resultado: <a class="link" href="https://www.marinhomendes.adv.br/blog/auxilio-doenca-2025/" target="_blank" rel="noopener">Guia do auxílio‑doença 2025</a>.</p>
+          <p class="muted">Aprofunde no tema com conteúdo técnico do nosso blog — sem promessa de resultado: <a class="link" href="https://www.marinhomendes.adv.br/blog/auxilio-doenca-2025/" target="_blank" rel="noopener">Guia do auxílio-doença 2025</a>.</p>
         </div>
       </div>
     </section>
@@ -469,17 +448,11 @@
           <div class="card">
             <h3><i class="fa-solid fa-building" aria-hidden="true"></i> Unidades</h3>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/fachada-campinas.webp" type="image/webp">
-                <img src="img/fachada-campinas.jpg" alt="Fachada do escritório em Campinas (Praça Capital)" loading="lazy">
-              </picture>
+              <img src="img/fachada-campinas.jpg" alt="Fachada do escritório em Campinas (Praça Capital)" loading="lazy">
             </div>
             <p class="muted"><b>Campinas/SP</b><br>Av. José Rocha Bonfim, 214 – Bloco J, Sala 228 – Praça Capital – 13080-650</p>
             <div class="thumb" aria-hidden="true">
-              <picture>
-                <source srcset="img/fachada-hortolandia.webp" type="image/webp">
-                <img src="img/fachada-hortolandia.jpg" alt="Fachada do escritório em Hortolândia (Jardim do Bosque)" loading="lazy">
-              </picture>
+              <img src="img/fachada-hortolandia.jpg" alt="Fachada do escritório em Hortolândia (Jardim do Bosque)" loading="lazy">
             </div>
             <p class="muted"><b>Hortolândia/SP</b><br>Rua Antônio Nelson Barbosa, 93 – Jardim do Bosque – 13186-231</p>
             <p class="muted">Horário: dias úteis, 08:30–18:00</p>
@@ -593,9 +566,7 @@
         $('#year').textContent=new Date().getFullYear();
         // Barra de progresso
         const bar=$('#progress');
-        addEventListener('scroll',()=>{
-          const h=document.documentElement; const t=h.scrollTop; const m=h.scrollHeight-h.clientHeight; bar.style.width=(t/m*100)+'%'
-        },{passive:true});
+        addEventListener('scroll',()=>{ const h=document.documentElement; const t=h.scrollTop; const m=h.scrollHeight-h.clientHeight; bar.style.width=(t/m*100)+'%' },{passive:true});
         // Menu móvel
         const burger=$('.burger'), mobile=$('#mnav');
         if(burger){ burger.addEventListener('click',()=>{const open=mobile.classList.toggle('open'); burger.setAttribute('aria-expanded',String(open))}) }
