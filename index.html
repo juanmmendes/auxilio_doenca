@@ -177,6 +177,20 @@
 
     /* Acessibilidade e motion */
     @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+    /* ↓ Contato imediato: reduzir miniaturas em 40% */
+  #contato .thumb{
+  width:60%;
+  margin:.4rem auto .8rem; /* centraliza no card */
+  }
+  #contato .thumb img{
+  width:100%;
+  height:auto;
+  display:block;
+  }
+@media (max-width:700px){
+  #contato .thumb{ width:70%; }
+}
+
   </style>
 </head>
 <body>
@@ -223,7 +237,7 @@
           <h1>Seus direitos, requisitos e passos — com amparo jurídico</h1>
           <p class="lead">Entenda em linguagem direta quando o benefício é devido, como funciona <strong>Atestmed</strong> versus <strong>Perícia</strong>, quais <strong>documentos</strong> levar e como agir em caso de <strong>negativa</strong>. <em>Decisões sobre saúde e renda exigem orientação técnica — o acompanhamento jurídico reduz erros e acelera soluções.</em></p>
           <div class="cta">
-            <a class="btn primary" href="#contato"><i class="fa-solid fa-scale-balanced"></i> Quero orientação jurídica</a>
+            <a class="btn primary" href="#contato"><i class="fa-solid fa-scale-balanced"></i> Fale com um especialista</a>
             <a class="btn secondary" href="#documentos"><i class="fa-solid fa-folder-open"></i> Ver documentos</a>
           </div>
           <div class="legal" style="margin-top:14px"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
@@ -447,14 +461,14 @@
         <div class="grid">
           <div class="card">
             <h3><i class="fa-solid fa-building" aria-hidden="true"></i> Unidades</h3>
-            <div class="thumb" aria-hidden="true">
-              <img src="img/Logo.png" alt="Fachada do escritório em Campinas (Praça Capital)" loading="lazy">
-            </div>
             <p class="muted"><b>Campinas/SP</b><br>Av. José Rocha Bonfim, 214 – Bloco J, Sala 228 – Praça Capital – 13080-650</p>
-            <div class="thumb" aria-hidden="true">
-              <img src="img/Logo.png" alt="Fachada do escritório em Hortolândia (Jardim do Bosque)" loading="lazy">
+                        <div class="thumb" aria-hidden="true">
+              <img src="img/campinas.jpg" alt="Fachada do escritório em Campinas (Praça Capital)" loading="lazy">
             </div>
             <p class="muted"><b>Hortolândia/SP</b><br>Rua Antônio Nelson Barbosa, 93 – Jardim do Bosque – 13186-231</p>
+                        <div class="thumb" aria-hidden="true">
+              <img src="img/horto.jpg" alt="Fachada do escritório em Hortolândia (Jardim do Bosque)" loading="lazy">
+            </div>
             <p class="muted">Horário: dias úteis, 08:30–18:00</p>
             <div class="social" aria-label="Redes sociais do escritório" style="margin-top:.6rem">
               <a href="https://www.facebook.com/marinhomendesadv" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
@@ -517,6 +531,9 @@
         </div>
       </div>
     </section>
+
+  
+
   </main>
 
   <!-- Sticky CTA (mobile) -->
