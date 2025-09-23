@@ -12,31 +12,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <style>
     :root{
-      /* Cores institucionais sólidas */
-      --brand:#0A2540;         /* navy forte */
-      --brand-2:#0E1A2A;       /* navy profundo */
-      --gold:#C5A76B;          /* dourado discreto */
-      --ink:#101520;           /* texto principal (alto contraste) */
-      --muted:#5E6573;         /* texto auxiliar */
-      --paper:#FFFFFF;         /* cartões */
-      --bg:#F5F7FA;            /* fundo */
-      --line:#E3E6EB;          /* linhas sutis */
-      --ok:#0B7A5A;            /* verde credibilidade */
-      --warn:#8A5A0A;          /* aviso */
-      --danger:#B00020;        /* erro acessível */
-      --shadow:0 12px 30px rgba(10,37,64,.12);
-      /* Tipografia e escala */
+      --brand:#0A2540; --brand-2:#0E1A2A; --gold:#C5A76B;
+      --ink:#101520; --muted:#5E6573; --paper:#FFFFFF; --bg:#F5F7FA; --line:#E3E6EB;
+      --ok:#0B7A5A; --warn:#8A5A0A; --danger:#B00020; --shadow:0 12px 30px rgba(10,37,64,.12);
       --ff-sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
       --ff-serif:'Playfair Display',serif;
       --fs-900:clamp(2.2rem, 3.8vw + .6rem, 3.4rem);
       --fs-800:clamp(1.4rem, 2.2vw + .4rem, 2.2rem);
       --fs-700:clamp(1.05rem, 1.25vw + .4rem, 1.35rem);
       --fs-600:1.05rem; --fs-500:1rem; --lh:1.65;
-      --radius:16px; --rsm:12px; --tap:46px;
-      --container:1180px;
+      --radius:16px; --rsm:12px; --tap:46px; --container:1180px;
     }
     *,*::before,*::after{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+
+    /* RESET CRÍTICO DE QUEBRA DE LINHA (evita "linha infinita") */
+    html{scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%;}
+    :where(body, body *){ white-space: normal !important; overflow-wrap: break-word; word-wrap: break-word; word-break: normal; }
+    @supports not (overflow-wrap: anywhere){
+      :where(body, body *){ word-break: break-word; }
+    }
+
     body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--fs-500)/var(--lh) var(--ff-sans)}
     h1,h2,h3{margin:0 0 .75rem;color:#0D1522}
     h1{font:700 var(--fs-900)/1.12 var(--ff-serif)}
@@ -46,8 +41,13 @@
     a{color:inherit;text-decoration:none}
     a.link{color:var(--brand);text-decoration:underline;text-underline-offset:3px}
     .container{width:min(var(--container),92%);margin-inline:auto}
+    img{max-width:100%;height:auto;display:block}
 
-    /* Header institucional (sólido) */
+    /* Acessibilidade (pular para conteúdo) */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .sr-only:focus{position:static;width:auto;height:auto;margin:0;clip:auto;white-space:normal;padding:.5rem;background:#fff;color:#000;border:2px solid #000}
+
+    /* Header */
     .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),#E4CFA1);width:0;z-index:70}
     header{position:sticky;top:0;z-index:60;background:var(--brand);border-bottom:1px solid rgba(255,255,255,.08)}
     .topbar{display:flex;align-items:center;gap:18px;padding:14px 0}
@@ -68,7 +68,7 @@
     .mobile a{display:block;color:#E9EEF5;padding:12px 16px;font-weight:700}
     .mobile a:hover{color:#fff;background:rgba(255,255,255,.06)}
 
-    /* Hero institucional (primeira dobra) */
+    /* Hero */
     .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--brand),var(--brand-2));padding:84px 0}
     .hero::before{content:"";position:absolute;inset:0;background:url('img/hero-auxilio.webp') center/cover no-repeat;filter:grayscale(100%) contrast(1.05) opacity(.18)}
     .hero .container{position:relative;z-index:2;display:grid;gap:28px;align-items:center;grid-template-columns:1.1fr .9fr}
@@ -80,9 +80,8 @@
     .btn{display:inline-flex;align-items:center;gap:10px;border-radius:12px;padding:12px 16px;font-weight:800;letter-spacing:.2px;border:1px solid transparent;cursor:pointer}
     .btn.primary{background:var(--gold);color:#1A2230}
     .btn.secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
-    .hero .note{margin-top:8px;color:#C9D4E3;font-size:.96rem}
 
-    /* Blocos de informação (cartões firmes) */
+    /* Seções / cards */
     .section{padding:56px 0}
     .section.white{background:#fff}
     .title-center{text-align:center;margin-bottom:22px}
@@ -91,7 +90,6 @@
     @media(min-width:860px){.grid-2{grid-template-columns:1fr 1fr}}
     .grid-3{display:grid;gap:18px}
     @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-
     .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
     .card h3{display:flex;align-items:center;gap:10px;color:var(--brand)}
     .card h3 i{color:var(--gold)}
@@ -118,7 +116,6 @@
     @media(min-width:860px){.checklist{grid-template-columns:1fr 1fr}}
     .doc{display:flex;gap:12px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px;align-items:flex-start}
     .doc i{color:var(--gold);font-size:1.2rem;margin-top:2px}
-
     .pill{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;font-weight:700;font-size:.9rem}
 
     /* Avisos jurídicos */
@@ -128,30 +125,52 @@
     /* Contato */
     .contact .grid{display:grid;gap:18px}
     @media(min-width:1040px){.contact .grid{grid-template-columns:1.1fr .9fr}}
-    label{font-weight:800;color:#0C1421}
+    label{font-weight:800;color:#0C1421;display:block}
     input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;font:400 var(--fs-500)/1.45 var(--ff-sans);color:var(--ink)}
     input:focus,textarea:focus,select:focus{outline:3px solid var(--brand);outline-offset:1px}
     .row{display:grid;gap:12px}
     @media(min-width:700px){.row.two{grid-template-columns:1fr 1fr}}
     .errors{display:none;color:var(--danger);font-weight:700;font-size:.92rem}
 
-    /* Consentimento LGPD — compacto */
+    /* LGPD — checkbox à esquerda, texto fluindo; sem empilhar em telas pequenas */
     .consent{
-      margin-top:10px;
-      border:1px solid #E8D9B6;
-      background:#FFF9EA;
-      border-radius:10px;
-      padding:8px 10px;     /* reduzido */
-      color:#5E4B20;
+      margin-top:10px;border:1px solid #E8D9B6;background:#FFF9EA;border-radius:10px;
+      padding:8px 10px;color:#5E4B20;max-width:100%;
     }
-    .consent label{display:flex;gap:8px;align-items:flex-start;font-weight:700;font-size:.95rem;line-height:1.4}
-    .consent small{display:block;color:#6B5725;font-weight:600;font-size:.9rem}
-    #lgpd{margin-top:2px}
-    @media(max-width:700px){
-      .consent{padding:8px}
-      .consent label{font-size:.92rem}
-      .consent small{font-size:.85rem}
+    .consent label{
+      display:grid !important;
+      grid-template-columns:auto 1fr !important; /* checkbox | texto */
+      align-items:start;
+      gap:10px;
+      font-weight:700;
+      font-size:clamp(.9rem,3.2vw,.95rem);
+      line-height:1.45;
+      max-width:100%;
     }
+    .consent label > input{
+      grid-column:1;
+      align-self:start;
+      margin-top:2px;
+      width:18px; height:18px;
+      accent-color:var(--gold);
+      flex:0 0 auto;
+    }
+    .consent label > span{
+      grid-column:2;
+      min-width:0;
+      overflow-wrap:anywhere;
+      hyphens:auto;
+      max-width:100%;
+    }
+    .consent small{
+      display:block;
+      color:#6B5725;
+      font-weight:600;
+      font-size:clamp(.8rem,2.8vw,.85rem);
+      line-height:1.45;
+      margin-top:2px;
+    }
+    .consent.error{border-color:#F4C2CF;background:#FFF5F7;color:#7A1020}
 
     /* Social */
     .social{display:flex;gap:.6rem;flex-wrap:wrap}
@@ -163,7 +182,6 @@
     .sticky-cta .container{display:flex;gap:10px;justify-content:space-between;align-items:center}
     .sticky-cta .btn{padding:.85rem 1rem}
     @media(min-width:900px){.sticky-cta{display:none}}
-    /* Mobile: esconder completamente o sticky CTA */
     @media (max-width: 899.98px){ .sticky-cta{ display:none !important; } }
 
     /* WhatsApp flutuante */
@@ -175,22 +193,13 @@
     @media(min-width:1000px){.foot{grid-template-columns:repeat(4,1fr)}}
     .copy{text-align:center;color:var(--muted)}
 
-    /* Acessibilidade e motion */
+    /* Motion */
     @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
-    /* ↓ Contato imediato: reduzir miniaturas em 40% */
-  #contato .thumb{
-  width:60%;
-  margin:.4rem auto .8rem; /* centraliza no card */
-  }
-  #contato .thumb img{
-  width:100%;
-  height:auto;
-  display:block;
-  }
-@media (max-width:700px){
-  #contato .thumb{ width:70%; }
-}
 
+    /* Miniaturas do contato menores em mobile */
+    #contato .thumb{ width:60%; margin:.4rem auto .8rem; }
+    #contato .thumb img{ width:100%; height:auto; display:block; }
+    @media (max-width:700px){ #contato .thumb{ width:70%; } }
   </style>
 </head>
 <body>
@@ -206,7 +215,6 @@
         </div>
       </div>
       <nav aria-label="Navegação principal">
-        <!-- REMOVIDO: O essencial -->
         <a href="#documentos" class="nav-link">Documentos</a>
         <a href="#familia" class="nav-link">Familiares</a>
         <a href="#processo" class="nav-link">Etapas</a>
@@ -217,14 +225,12 @@
     </div>
     <div class="mobile" id="mnav" role="dialog" aria-label="Menu">
       <div class="container wrap">
-        <!-- REMOVIDO: O essencial -->
         <a href="#documentos">Documentos</a>
         <a href="#familia">Familiares</a>
         <a href="#processo">Etapas</a>
         <a href="#faq">Perguntas</a>
         <a href="#contato">Contato imediato</a>
       </div>
-    </div>
     </div>
   </header>
 
@@ -462,11 +468,11 @@
           <div class="card">
             <h3><i class="fa-solid fa-building" aria-hidden="true"></i> Unidades</h3>
             <p class="muted"><b>Campinas/SP</b><br>Av. José Rocha Bonfim, 214 – Bloco J, Sala 228 – Praça Capital – 13080-650</p>
-                        <div class="thumb" aria-hidden="true">
+            <div class="thumb" aria-hidden="true">
               <img src="img/campinas.jpg" alt="Fachada do escritório em Campinas (Praça Capital)" loading="lazy">
             </div>
             <p class="muted"><b>Hortolândia/SP</b><br>Rua Antônio Nelson Barbosa, 93 – Jardim do Bosque – 13186-231</p>
-                        <div class="thumb" aria-hidden="true">
+            <div class="thumb" aria-hidden="true">
               <img src="img/horto.jpg" alt="Fachada do escritório em Hortolândia (Jardim do Bosque)" loading="lazy">
             </div>
             <p class="muted">Horário: dias úteis, 08:30–18:00</p>
@@ -514,9 +520,18 @@
                   <div class="errors" id="e-msg">Descreva brevemente sua situação.</div>
                 </div>
               </div>
+
+              <!-- LGPD -->
               <div class="consent" role="group" aria-labelledby="lgpd-t">
-                <label for="lgpd"><input type="checkbox" id="lgpd" aria-describedby="lgpd-t lgpd-d"> <span><span id="lgpd-t">Consentimento LGPD</span><small id="lgpd-d">Confirmo que li e concordo com o tratamento dos meus dados pessoais exclusivamente para finalidade de atendimento, conforme a LGPD.</small></span></label>
+                <label for="lgpd">
+                  <input type="checkbox" id="lgpd" aria-describedby="lgpd-t lgpd-d">
+                  <span>
+                    <span id="lgpd-t">Consentimento LGPD</span>
+                    <small id="lgpd-d">Confirmo que li e concordo com o tratamento dos meus dados pessoais exclusivamente para finalidade de atendimento, conforme a LGPD.</small>
+                  </span>
+                </label>
               </div>
+
               <div style="display:flex;gap:12px;align-items:center;margin-top:14px;flex-wrap:wrap">
                 <button class="btn primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
                 <a class="btn secondary" href="https://wa.me/5519974100605?text=Ol%C3%A1%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20sobre%20aux%C3%ADlio-doen%C3%A7a" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
@@ -531,9 +546,6 @@
         </div>
       </div>
     </section>
-
-  
-
   </main>
 
   <!-- Sticky CTA (mobile) -->
@@ -577,39 +589,66 @@
   <a class="whats" href="https://wa.me/5519974100605?text=Ol%C3%A1%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20sobre%20aux%C3%ADlio-doen%C3%A7a" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
 
   <script>
-      (function(){
-        const $=(s,c=document)=>c.querySelector(s); const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
-        // Ano
-        $('#year').textContent=new Date().getFullYear();
-        // Barra de progresso
-        const bar=$('#progress');
-        addEventListener('scroll',()=>{ const h=document.documentElement; const t=h.scrollTop; const m=h.scrollHeight-h.clientHeight; bar.style.width=(t/m*100)+'%' },{passive:true});
-        // Menu móvel
-        const burger=$('.burger'), mobile=$('#mnav');
-        if(burger){ burger.addEventListener('click',()=>{const open=mobile.classList.toggle('open'); burger.setAttribute('aria-expanded',String(open))}) }
-        // Scrollspy simples
-        const links=$$('.nav-link'); const sections=links.map(a=>$((a.getAttribute('href')))).filter(Boolean);
-        const spy=()=>{ const y=scrollY+120; let cur=sections[0]; for(const s of sections){ if(s.offsetTop<=y) cur=s } links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur.id)) };
-        addEventListener('scroll',spy,{passive:true}); spy();
-        // Validação básica do formulário
-        const f=$('#form');
-        if(f){ const ok=t=>String(t||'').trim().length>1; const mail=v=>/.+@.+\..+/.test(String(v||''));
-          const show=(id,good)=>{ const el=$(id); if(el) el.style.display=good?'none':'block' };
-          f.addEventListener('submit',e=>{
-            e.preventDefault();
-            const a=ok(f.nome.value), b=ok(f.fone.value), c=mail(f.email.value), d=ok(f.msg.value), lg=$('#lgpd').checked;
-            show('#e-nome',a); show('#e-fone',b); show('#e-mail',c); show('#e-msg',d);
-            if(a&&b&&c&&d&&lg){
-              const payload={ nome:f.nome.value, fone:f.fone.value, email:f.email.value, assunto:f.assunto.value, msg:f.msg.value, lgpd:lg, origem:'LP-Aux-2025' };
-              console.log('lead-submission', payload);
-              alert('Mensagem enviada com sucesso. Um advogado entrará em contato em breve.');
-              f.reset();
-            } else if(!lg){
-              alert('Para prosseguir, confirme o consentimento LGPD.');
-            }
-          })
-        }
-      })();
+    (function(){
+      const $=(s,c=document)=>c.querySelector(s);
+      const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
+      // Ano
+      $('#year').textContent=new Date().getFullYear();
+
+      // Barra de progresso
+      const bar=$('#progress');
+      addEventListener('scroll',()=>{
+        const h=document.documentElement;
+        const t=h.scrollTop; const m=h.scrollHeight-h.clientHeight;
+        bar.style.width=(t/m*100)+'%';
+      },{passive:true});
+
+      // Menu móvel
+      const burger=$('.burger'), mobile=$('#mnav');
+      if(burger){
+        burger.addEventListener('click',()=>{
+          const open=mobile.classList.toggle('open');
+          burger.setAttribute('aria-expanded',String(open));
+        });
+      }
+
+      // Scrollspy simples
+      const links=$$('.nav-link');
+      const sections=links.map(a=>$(a.getAttribute('href'))).filter(Boolean);
+      const spy=()=>{
+        const y=scrollY+120;
+        let cur=sections[0];
+        for(const s of sections){ if(s.offsetTop<=y) cur=s }
+        links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur.id));
+      };
+      addEventListener('scroll',spy,{passive:true}); spy();
+
+      // Validação básica do formulário
+      const f=$('#form');
+      if(f){
+        const ok=t=>String(t||'').trim().length>1;
+        const mail=v=>/.+@.+\..+/.test(String(v||''));
+        const show=(id,good)=>{ const el=$(id); if(el) el.style.display=good?'none':'block' };
+
+        f.addEventListener('submit',e=>{
+          e.preventDefault();
+          const a=ok(f.nome.value), b=ok(f.fone.value), c=mail(f.email.value), d=ok(f.msg.value), lg=$('#lgpd').checked;
+          show('#e-nome',a); show('#e-fone',b); show('#e-mail',c); show('#e-msg',d);
+          const consentBox=$('.consent');
+          if(consentBox){ consentBox.classList.toggle('error', !lg); }
+
+          if(a&&b&&c&&d&&lg){
+            const payload={ nome:f.nome.value, fone:f.fone.value, email:f.email.value, assunto:f.assunto.value, msg:f.msg.value, lgpd:lg, origem:'LP-Aux-2025' };
+            console.log('lead-submission', payload);
+            alert('Mensagem enviada com sucesso. Um advogado entrará em contato em breve.');
+            f.reset();
+            if(consentBox){ consentBox.classList.remove('error'); }
+          } else if(!lg){
+            alert('Para prosseguir, confirme o consentimento LGPD.');
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>
